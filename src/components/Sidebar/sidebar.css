@@ -1,0 +1,65 @@
+.sidebar {
+  min-width: 256px;
+  max-width: 256px;
+  min-height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+.toggleSidebar {
+  width: 68px;
+  max-width: 256px;
+  min-height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.link {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  color: #334d6e;
+  cursor: pointer;
+  text-decoration: none;
+  margin-left: 5px;
+}
+.link p {
+  margin-left: 16px;
+  margin-bottom: 0;
+}
+.link g {
+}
+.link path {
+  stroke-width: 10px;
+}
+
+.active-link {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  color: #109cf1;
+  cursor: pointer;
+  text-decoration: none;
+}
+.active-link p {
+  margin-left: 12px;
+  margin-bottom: 0;
+}
+
+.active-link g {
+}
+.active-link path {
+  fill: #109cf1;
+  stroke-width: 10px;
+}
+.toggleActive-link {
+  margin-left: 5px;
+}
+.toggleActive-link path {
+  fill: #109cf1;
+  stroke-width: 10px;
+}
