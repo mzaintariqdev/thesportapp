@@ -1,5 +1,5 @@
 export const heading = [
-  { name: "Name", width: "232px", marginRight: "64px" },
+  { name: "Name", width: "232px", marginRight: "54px" },
   { name: "Email", width: "210px", marginRight: "24px" },
   { name: "Company Name", width: "120px", marginRight: "29px" },
   { name: "Mobile", width: "120px", marginRight: "19px" },

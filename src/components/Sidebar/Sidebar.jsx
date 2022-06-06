@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import "./sidebar.css";
 import { UserOutlined } from "@ant-design/icons";
@@ -42,6 +42,14 @@ function Sidebar() {
     },
   ];
   const [toggle, setToggle] = useState(false);
+  const width = window.innerWidth;
+  console.log(width);
+  useEffect(() => {
+    if (width < 768) {
+      setToggle(true);
+    }
+  }, [width]);
+
   const active = toggle ? "toggleActive-link" : "active-link";
   return (
     <div className={toggle ? "toggleSidebar" : "sidebar"}>

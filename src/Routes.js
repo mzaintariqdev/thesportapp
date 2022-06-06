@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Clients from "./pages/clients/Clients";
 import Schedule from "./pages/schedule/Schedule";
 import Sidebar from "./components/Sidebar/Sidebar";
+import Header from "./components/header/header";
 function MainRoutes() {
   return (
     <BrowserRouter>
@@ -21,8 +22,10 @@ function MainRoutes() {
             backgroundColor: "#F5F6F8",
           }}
         >
+          <Header />
           <Routes>
             {/* dashboard  */}
+
             <Route exact path="/" element={<DashBoard />} />
             <Route path="/clients" element={<Clients />} />
             <Route path="/schedule" element={<Schedule />} />

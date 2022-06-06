@@ -6,70 +6,10 @@ import AntTable from "../../components/check";
 import { UserOutlined } from "@ant-design/icons";
 
 import { heading, sampleData } from "../../components/table/data";
-const columns = [
-  {
-    title: "Name",
-    dataIndex: "name",
-    key: "name",
-    render: (text) => <a>{text}</a>,
-    width: 150,
-  },
-  {
-    title: "Age",
-    dataIndex: "age",
-    key: "age",
-    width: 80,
-  },
-  {
-    title: "Address",
-    dataIndex: "address",
-    key: "address 1",
-    ellipsis: true,
-  },
-  {
-    title: "Long Column Long Column Long Column",
-    dataIndex: "address",
-    key: "address 2",
-    ellipsis: true,
-  },
-  {
-    title: "Long Column Long Column",
-    dataIndex: "address",
-    key: "address 3",
-    ellipsis: true,
-  },
-  {
-    title: "Long Column",
-    dataIndex: "address",
-    key: "address 4",
-    ellipsis: true,
-  },
-];
-const data = [
-  {
-    key: "1",
-    name: "John Brown",
-    age: 32,
-    address: "New York No. 1 Lake Park, New York No. 1 Lake Park",
-    tags: ["nice", "developer"],
-  },
-  {
-    key: "2",
-    name: "Jim Green",
-    age: 42,
-    address: "London No. 2 Lake Park, London No. 2 Lake Park",
-    tags: ["loser"],
-  },
-  {
-    key: "3",
-    name: "Joe Black",
-    age: 32,
-    address: "Sidney No. 1 Lake Park, Sidney No. 1 Lake Park",
-    tags: ["cool", "teacher"],
-  },
-];
+
 const Clients = () => (
   <Wrapper>
+    <UpperDiv></UpperDiv>
     <TableHead>
       <Head>
         {heading.map((header) => (
@@ -90,15 +30,90 @@ const Clients = () => (
             />{" "}
             <Name>{data.name}</Name>
           </ClientProfile>
-          <Email>{data.email}asassasasasasa</Email>
+          <Email>{data.email}</Email>
+          <CompanyName>{data.companyName}</CompanyName>
+          <MobilePhone>{data.mobile}</MobilePhone>
+          <Amount>{data.amountDue}</Amount>
+          <LastSession>{data.lastSession}</LastSession>
         </DataRow>
       ))}
     </TableData>
   </Wrapper>
 );
+const UpperDiv = styled.div`
+  margin-left: 36px;
+  margin-top: 24px;
+  height: auto;
+  max-height: 697px;
+  width: 69rem;
+  background: white;
+  filter: drop-shadow(0px 6px 18px rgba(0, 0, 0, 0.06));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+const LastSession = styled.p`
+  width: 120px;
+  height: auto;
+  font-family: "Poppins";
+
+  font-weight: 400;
+  font-size: 13px;
+
+  letter-spacing: 0.01em;
+
+  /* table_gray */
+
+  color: #707683;
+`;
+const Amount = styled.p`
+  margin-left: 25px;
+  width: 120px;
+  height: auto;
+  font-family: "Poppins";
+
+  font-weight: 400;
+  font-size: 13px;
+
+  letter-spacing: 0.01em;
+
+  /* table_gray */
+
+  color: #707683;
+`;
+const MobilePhone = styled.p`
+  margin-left: 25px;
+  width: 120px;
+  height: auto;
+  font-family: "Poppins";
+
+  font-weight: 400;
+  font-size: 13px;
+
+  letter-spacing: 0.01em;
+
+  /* table_gray */
+
+  color: #707683;
+`;
+const CompanyName = styled.p`
+  margin-left: 25px;
+  width: 120px;
+  height: auto;
+  font-family: "Poppins";
+
+  font-weight: 400;
+  font-size: 13px;
+
+  letter-spacing: 0.01em;
+
+  /* table_gray */
+
+  color: #707683;
+`;
 const Email = styled.p`
-margin:
-0background: red;
+  width: 100%;
+  margin-left: 64px;
   max-width: 210px;
   height: auto;
 `;
@@ -110,7 +125,7 @@ const Name = styled.div`
   color: ${(p) => p.theme.colors.assetBlack};
 `;
 const ClientProfile = styled.div`
-  margin-left: 64px;
+  margin-left: 59px;
   width: 232px;
   display: flex;
   flex-direction: row;
@@ -127,6 +142,13 @@ const DataRow = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  &:hover,
+  :active,
+  :focus {
+    background: #ffffff;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  cursor: pointer;
 `;
 const Head = styled.div`
   display: flex;
