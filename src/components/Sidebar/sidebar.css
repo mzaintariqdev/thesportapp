@@ -2,6 +2,7 @@
   min-width: 256px;
   max-width: 256px;
   min-height: 100vh;
+  max-height: 100vh;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -11,6 +12,7 @@
   width: 68px;
   max-width: 256px;
   min-height: 100vh;
+  max-height: 100vh;
   background-color: white;
   display: flex;
   flex-direction: column;

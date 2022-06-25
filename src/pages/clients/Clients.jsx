@@ -6,40 +6,49 @@ import AntTable from "../../components/check";
 import { UserOutlined } from "@ant-design/icons";
 
 import { heading, sampleData } from "../../components/table/data";
+import { useNavigate } from "react-router-dom";
 
-const Clients = () => (
-  <Wrapper>
-    <UpperDiv></UpperDiv>
-    <TableHead>
-      <Head>
-        {heading.map((header) => (
-          <HeadingItem marginRight={header.marginRight} width={header.width}>
-            {header.name}
-          </HeadingItem>
+const Clients = () => {
+  const navigate = useNavigate();
+  return (
+    <Wrapper>
+      <UpperDiv></UpperDiv>
+      <TableHead>
+        <Head>
+          {heading.map((header) => (
+            <HeadingItem marginRight={header.marginRight} width={header.width}>
+              {header.name}
+            </HeadingItem>
+          ))}
+        </Head>
+      </TableHead>
+      <TableData>
+        {sampleData.map((data) => (
+          <DataRow
+            onClick={() => {
+              navigate("/client-profile");
+            }}
+          >
+            <ClientProfile>
+              <AntAvatar
+                size={24}
+                style={{ marginRight: "12px" }}
+                icon={<UserOutlined />}
+              />{" "}
+              <Name>{data.name}</Name>
+            </ClientProfile>
+            <Email>{data.email}</Email>
+            <CompanyName>{data.companyName}</CompanyName>
+            <MobilePhone>{data.mobile}</MobilePhone>
+            <Amount>{data.amountDue}</Amount>
+            <LastSession>{data.lastSession}</LastSession>
+          </DataRow>
         ))}
-      </Head>
-    </TableHead>
-    <TableData>
-      {sampleData.map((data) => (
-        <DataRow>
-          <ClientProfile>
-            <AntAvatar
-              size={24}
-              style={{ marginRight: "12px" }}
-              icon={<UserOutlined />}
-            />{" "}
-            <Name>{data.name}</Name>
-          </ClientProfile>
-          <Email>{data.email}</Email>
-          <CompanyName>{data.companyName}</CompanyName>
-          <MobilePhone>{data.mobile}</MobilePhone>
-          <Amount>{data.amountDue}</Amount>
-          <LastSession>{data.lastSession}</LastSession>
-        </DataRow>
-      ))}
-    </TableData>
-  </Wrapper>
-);
+      </TableData>
+    </Wrapper>
+  );
+};
+
 const UpperDiv = styled.div`
   margin-left: 36px;
   margin-top: 24px;
@@ -158,8 +167,8 @@ const Head = styled.div`
   margin-right: 24px;
 `;
 const TableHead = styled.div`
-  max-width: 69rem;
-  width: 69rem;
+  max-width: 1110px;
+  width: 100%;
   height: 48px;
   border-bottom: 1px solid #ebeff2;
   opacity: 0.5;
@@ -181,7 +190,8 @@ const Wrapper = styled.div`
   margin-top: 24px;
   height: auto;
   max-height: 697px;
-  width: 69rem;
+  max-width: 1110px;
+  width: auto;
   background: white;
   filter: drop-shadow(0px 6px 18px rgba(0, 0, 0, 0.06));
   display: flex;

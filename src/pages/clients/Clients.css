@@ -1,7 +1,6 @@
 body {
   background-color: gray;
-  overflow-x: scroll;
-  overflow: scroll;
+
   min-width: 100vw;
   min-height: 100vh;
 }
