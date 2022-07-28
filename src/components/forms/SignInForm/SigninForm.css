@@ -1,0 +1,7 @@
+.form {
+  min-height: 307px;
+  min-width: 400px;
+  background: #ffffff;
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
