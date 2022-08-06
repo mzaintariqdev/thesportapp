@@ -1,10 +1,12 @@
 import styled from "styled-components";
+import Analytics from "./analytics";
 import TopAnalytics from "./topAnalytics";
 
 function DashBoard() {
   return (
     <Wrapper>
       <TopAnalytics />
+      <Analytics />
     </Wrapper>
   );
 }
