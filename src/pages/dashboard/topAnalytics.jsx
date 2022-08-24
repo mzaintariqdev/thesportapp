@@ -44,6 +44,7 @@ const Wrapper = styled.div`
   justify-content: center;
   width: 100%;
   max-width: 1101px;
+  min-width: 1101px;
   min-height: 102px;
   background: white;
 `;

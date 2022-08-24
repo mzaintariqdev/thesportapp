@@ -77,7 +77,7 @@ function Analytics() {
   return (
     // <ResponsiveContainer>
 
-    <>
+    <MainWrapper>
       <Wrapper>
         <DetailsWrapper>
           <Deals>Deals</Deals>
@@ -167,10 +167,14 @@ function Analytics() {
           </TicksWrapper>
         </SubPieWrapper>
       </PieWrapper>
-    </>
+    </MainWrapper>
   );
 }
 
+const MainWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 const Ticks = styled.div`
   width: 8px;
   height: 8px;
