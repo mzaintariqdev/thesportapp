@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { useState } from "react";
+import { Select } from "antd";
 
-import React from "react";
 import {
   AreaChart,
   Area,
@@ -11,8 +12,11 @@ import {
   ResponsiveContainer,
   Label,
 } from "recharts";
-import { PieChart, Pie, Sector, Cell } from "recharts";
+import { PieChart, Pie, Cell } from "recharts";
+import { ReactComponent as DropDown } from "../../assets/icons/dropdown-arrow.svg";
 
+const { Option } = Select;
+const timeVariation = ["Monthly", "Weekly", "Daily"];
 function Analytics() {
   const dataCircle = [
     { name: "Group A", value: 600 },
@@ -22,7 +26,7 @@ function Analytics() {
   const COLORS = ["#2ED47A", "#F7685B", "#FFB946"];
   const data = [
     {
-      name: "Page A",
+      name: "1",
       data: 4000,
       pv: 2400,
       amt: 2400,
@@ -40,7 +44,7 @@ function Analytics() {
       amt: 2290,
     },
     {
-      name: "Page D",
+      name: "16",
       data: 2780,
       pv: 3908,
       amt: 2000,
@@ -58,32 +62,42 @@ function Analytics() {
       amt: 2500,
     },
     {
-      name: "Page G",
+      name: "31",
       data: 3490,
       pv: 4300,
       amt: 2100,
     },
   ];
-  const EXAMPLE_DATA = [
-    {
-      name: "example1",
-      value: 23.4,
-    },
-    {
-      name: "example2",
-      value: 76.6,
-    },
-  ];
-  return (
-    // <ResponsiveContainer>
 
+  const [variationPie, setPieVariation] = useState("Monthly");
+  const [variationLine, setLineVariation] = useState("Monthly");
+  const handlePieChartChange = (value) => {
+    setPieVariation(value);
+  };
+
+  const handleLineChartChange = (value) => {
+    setLineVariation(value);
+  };
+  return (
     <MainWrapper>
       <Wrapper>
         <DetailsWrapper>
           <Deals>Deals</Deals>
           <ShowWrapper>
             <ShowHeading>Show:</ShowHeading>
-            <ShowCategory>Monthly</ShowCategory>
+            <AntSelect
+              suffixIcon={<DropDown />}
+              bordered={false}
+              defaultValue={timeVariation[0]}
+              style={{
+                width: 94,
+              }}
+              onChange={handleLineChartChange}
+            >
+              {timeVariation.map((province) => (
+                <Option key={province}>{province} </Option>
+              ))}
+            </AntSelect>
           </ShowWrapper>
         </DetailsWrapper>
         <Hr />
@@ -104,7 +118,7 @@ function Analytics() {
               axisLine={false}
               dataKey="name"
               style={StyledAxis}
-              ticks={["Page D", "Page G"]}
+              ticks={["1", "16", "31"]}
             />
             <YAxis style={StyledAxis} axisLine={false} tickLine={false} />
             <CartesianGrid vertical={false} strokeDasharray="3 3" />
@@ -124,7 +138,19 @@ function Analytics() {
           <Deals>Tasks</Deals>
           <ShowWrapper>
             <ShowHeading>Show:</ShowHeading>
-            <ShowCategory>Monthly</ShowCategory>
+            <AntSelect
+              suffixIcon={<DropDown />}
+              bordered={false}
+              defaultValue={timeVariation[0]}
+              style={{
+                width: 94,
+              }}
+              onChange={handlePieChartChange}
+            >
+              {timeVariation.map((province) => (
+                <Option key={province}>{province} </Option>
+              ))}
+            </AntSelect>
           </ShowWrapper>
         </TasksWrapper>
         <Hr />
@@ -155,14 +181,14 @@ function Analytics() {
           <TicksWrapper>
             <SubTicksWrapper>
               <Ticks borderColor="#ffb946" />
-              <TickTag>Active</TickTag>
+              <TickTag>Canceled</TickTag>
             </SubTicksWrapper>
             <SubTicksWrapper>
               <Ticks borderColor="#2ED47A" />
-              <TickTag>Completed</TickTag>
+              <TickTag>Paid</TickTag>
             </SubTicksWrapper>
             <SubTicksWrapper>
-              <Ticks borderColor="#F7685B" /> <TickTag>Ended</TickTag>
+              <Ticks borderColor="#F7685B" /> <TickTag>Unpaid</TickTag>
             </SubTicksWrapper>
           </TicksWrapper>
         </SubPieWrapper>
@@ -171,6 +197,18 @@ function Analytics() {
   );
 }
 
+const AntSelect = styled(Select)`
+  .ant-select-selection-item {
+    margin: 0;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.01em;
+    color: #109cf1;
+  }
+`;
 const MainWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -246,7 +284,7 @@ const ClosedDealsWrapper = styled.div`
   padding-left: 24px;
   padding-bottom: 24px;
 `;
-const ShowCategory = styled.p`
+const ShowCategory = styled(Option)`
   margin: 0;
   font-family: "Poppins";
   font-style: normal;

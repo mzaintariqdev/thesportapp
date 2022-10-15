@@ -2,23 +2,25 @@ import React from "react";
 import styled from "styled-components";
 import SampleImage from "../../assets/icons/sample-image.svg";
 
-function BookingContainer() {
+function BookingContainer({ status = "completed" }) {
   return (
     <Wrapper>
       <HeadingWrapper>
         <Heading>Send benefit review by Sunday</Heading>
-        <Tag>Reminder</Tag>
+        <Tag>300 USD</Tag>
       </HeadingWrapper>
       <DueDateWrap>
-        <DueDate>Due Date:</DueDate>
-        <DateContent>December 23, 2018</DateContent>
+        <DueDate>Time</DueDate>
+        <DateContent>08:00 AM</DateContent>
       </DueDateWrap>
       <StatusWrap>
         <ImageWrap>
           <ClientImage src={SampleImage} alt="client" />
           <Name>Rebecca Moore</Name>
         </ImageWrap>
-        <Status>Completed</Status>
+        <Status status={status}>
+          {status === "unpaid" ? "unpaid" : "Completed"}
+        </Status>
       </StatusWrap>
     </Wrapper>
   );
@@ -54,7 +56,7 @@ const Status = styled.div`
   text-align: center;
   letter-spacing: 0.02em;
   color: #ffffff;
-  background: #2ed47a;
+  background: ${(p) => (p.status === "unpaid" ? "#F7685B" : "#2ed47a")};
   border-radius: 4px;
 `;
 const StatusWrap = styled.div`
@@ -88,6 +90,8 @@ const DueDateWrap = styled.div`
 `;
 const DueDate = styled.p`
   margin: 0;
+  width: 64px;
+  margin-right: 5px;
   font-family: "Poppins";
   font-style: normal;
   font-weight: 400;

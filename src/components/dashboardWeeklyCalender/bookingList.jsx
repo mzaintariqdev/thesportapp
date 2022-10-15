@@ -5,9 +5,9 @@ import BookingContainer from "./bookingContainer";
 function BookingList() {
   return (
     <Wrapper>
-      <BookingContainer />
-      <BookingContainer />
-      <BookingContainer />
+      <BookingContainer status={"completed"} />
+      <BookingContainer status={"unpaid"} />
+      <BookingContainer status={"completed"} />
       <ShowMore>Show more</ShowMore>
     </Wrapper>
   );
