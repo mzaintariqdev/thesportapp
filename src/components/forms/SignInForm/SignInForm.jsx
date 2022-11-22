@@ -4,8 +4,12 @@ import styled from "styled-components";
 
 import "./SigninForm.css";
 import { Input } from "antd";
+import { useDispatch } from "react-redux";
+import { username } from "../../../redux/reduxSlice/authSlice";
 
 function SignInForm() {
+  const dispatch = useDispatch();
+
   return (
     <Form>
       <Header>Sign In</Header>
@@ -14,7 +18,7 @@ function SignInForm() {
       <InputForm>
         <EmailWrapper>
           <EmailHeading>Email</EmailHeading>
-          <InputField placeHolder="sorreluz@gmail.com" bordered={false} />
+          <InputField placeholder="sorreluz@gmail.com" bordered={false} />
           <InputDivider />
         </EmailWrapper>
         <PasswordWrapper>
@@ -41,6 +45,9 @@ function SignInForm() {
           <AntButton
             style={{ height: "42px", borderRadius: "5px" }}
             type="primary"
+            onClick={() => {
+              dispatch(username("temp"));
+            }}
           >
             Next
           </AntButton>

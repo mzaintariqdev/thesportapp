@@ -3,8 +3,8 @@ import styled from "styled-components";
 import VenueLogo from "../../assets/img/Rectangle.svg";
 import BannerImage from "../../assets/img/image 5.svg";
 import SignInForm from "../../components/forms/SignInForm/SignInForm";
-
 import "./SignIn.css";
+
 function SignIn() {
   return (
     <MainWrapper>
