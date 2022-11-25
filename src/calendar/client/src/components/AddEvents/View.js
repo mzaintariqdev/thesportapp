@@ -3,8 +3,7 @@ import DatePicker from "react-datepicker";
 import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { addEventApi } from "../Redux/actions";
-import { connect } from "react-redux";
+
 import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from "react-router-dom";
 import { set } from "date-fns";
@@ -17,7 +16,7 @@ const schema = yup
   })
   .required();
 
-const AddEvents = ({ addEventApi, error }) => {
+const AddEvents = ({ addEventApi, error, onHide }) => {
   const navigate = useNavigate();
   const [rerender, setRerender] = useState(false);
   const [dbError, setError] = useState(false);
@@ -46,6 +45,10 @@ const AddEvents = ({ addEventApi, error }) => {
     addEventApi(values).then(() => {
       setRerender(!rerender);
     });
+    setTimeout(() => {
+      console.log("Close Modal");
+      onHide();
+    }, 1500);
   };
 
   return (
@@ -206,11 +209,4 @@ const AddEvents = ({ addEventApi, error }) => {
   );
 };
 
-function mapStateToProps({ event, error }) {
-  return {
-    error,
-    // event
-  };
-}
-
-export default connect(mapStateToProps, { addEventApi })(AddEvents);
+export default AddEvents;

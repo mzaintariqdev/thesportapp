@@ -1,12 +1,14 @@
+import { MODAL_TYPES } from "../../actions/modal";
+
 const initialValue = false;
 
 const modalReducer = (state = initialValue, action) => {
   switch (action.type) {
-    case "OPEN_MODAL":
+    case MODAL_TYPES.OPEN_MODAL:
       console.log("action status in the reducer", action.payload);
       return action.payload;
 
-    case "CLOSE_MODAL":
+    case MODAL_TYPES.CLOSE_MODAL:
       console.log("action status in the reducer", action.payload);
       return action.payload;
 

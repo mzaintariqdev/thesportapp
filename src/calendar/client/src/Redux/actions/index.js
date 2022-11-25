@@ -1,34 +1,26 @@
-
-import {ShowEventApi,
-        ShowEventsApi ,
-        addEventApi,
-        updateEventApi,
-        deleteEventApi,
-        deleteEvent,
-        
-        } from "./eventsActions"
-
 import {
-    closeEvent,
-    openModal,
-    closeModal
-} from "./modal"
+  ShowEventApi,
+  ShowEventsApi,
+  addEventApi,
+  updateEventApi,
+  deleteEventApi,
+  deleteEvent,
+} from "./events";
 
-import {
-    addError,
-    removeError
-} from "./errorsAction"
+import { closeEvent, openModal, closeModal } from "./modal";
 
-export  {
-    ShowEventApi,
-    ShowEventsApi,
-    addEventApi,
-    updateEventApi,
-    deleteEventApi,
-    deleteEvent,
-    closeEvent,
-    openModal,
-    closeModal, 
-    addError,
-    removeError
-}
+import { addError, removeError } from "./errors";
+
+export {
+  ShowEventApi,
+  ShowEventsApi,
+  addEventApi,
+  updateEventApi,
+  deleteEventApi,
+  deleteEvent,
+  closeEvent,
+  openModal,
+  closeModal,
+  addError,
+  removeError,
+};

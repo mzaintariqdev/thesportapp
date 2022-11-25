@@ -1,11 +1,13 @@
+import { ERROR_TYPES } from "../../actions/errors";
+
 const initialValue = {};
 
 const errorReducer = (state = initialValue, action) => {
   switch (action.type) {
-    case "ADD_ERROR":
+    case ERROR_TYPES.ADD_ERROR:
       console.log("error was added", action.payload);
       return action.payload;
-    case "REMOVE_ERROR":
+    case ERROR_TYPES.REMOVE_ERROR:
       console.log("error was removed");
       return {};
     default:

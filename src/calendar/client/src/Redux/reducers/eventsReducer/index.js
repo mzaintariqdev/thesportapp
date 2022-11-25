@@ -1,10 +1,12 @@
+import { EVENT_TYPES } from "../../actions/events";
+
 const initialValue = [];
 
 const EventsReducer = (state = initialValue, action) => {
   switch (action.type) {
-    case "SHOW_EVENTS":
+    case EVENT_TYPES.SHOW_EVENTS:
       return action.payload;
-    case "ADD_EVENT":
+    case EVENT_TYPES.ADD_EVENT:
       return [...state, action.payload];
     // case "UPDATE_EVENT":
     // const renderedEvents = state.filter(event => event.id !== action.payload._id);
@@ -14,7 +16,7 @@ const EventsReducer = (state = initialValue, action) => {
     //     action.payload
     // ]
 
-    case "DELETE_EVENT":
+    case EVENT_TYPES.DELETE_EVENT:
       const filteredEvents = state.filter(
         (event) => event.id !== action.payload.id
       );

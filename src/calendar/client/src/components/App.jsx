@@ -1,8 +1,8 @@
 import React from "react";
 import { Route, Routes, Link } from "react-router-dom";
-import MyCalendar from "./Calendar";
 import "../style/global.scss";
 import AddEvents from "./AddEvents";
+import MyCalendar from "./Calendar";
 import UpdateEvent from "./UpdateEvent";
 
 function App() {

@@ -1,18 +1,26 @@
-import { event } from "../Axios/event";
+import { eventServiceApi } from "../../services/eventServiceApi";
 import * as moment from "moment";
-import { addError, removeError } from "./errorsAction";
-import { useNavigate } from "react-router-dom";
+import { addError, removeError } from "../errors";
+
+export const EVENT_TYPES = {
+  SHOW_EVENT: "SHOW_EVENT",
+  SHOW_EVENTS: "SHOW_EVENTS",
+  DELETE_EVENT: "DELETE_EVENT",
+  ADD_EVENT: "ADD_EVENT",
+  UPDATE_EVENT: "UPDATE_EVENT",
+};
+
 export const showEvent = (event) => {
   console.log("event to be shown on the modal: ", event);
   return {
-    type: "SHOW_EVENT",
+    type: EVENT_TYPES.SHOW_EVENT,
     payload: event,
   };
 };
 
 export const showEvents = (events) => {
   return {
-    type: "SHOW_EVENTS",
+    type: EVENT_TYPES.SHOW_EVENTS,
     payload: events,
   };
 };
@@ -20,7 +28,7 @@ export const showEvents = (events) => {
 export const ShowEventApi = (id) => async (dispatch) => {
   //i won't get the event from redux store as it is safer to
   //keep updated with db.
-  const result = await event.get(`/${id}/show`);
+  const result = await eventServiceApi.get(`/${id}/show`);
 
   try {
     const { title, _id, start, end, describe, status, client } =
@@ -45,7 +53,7 @@ export const ShowEventsApi = () => async (dispatch) => {
   console.log("started fetching the api");
   //i won't get the event from redux store as it is safer to
   //keep updated with db.
-  const result = await event.get("/");
+  const result = await eventServiceApi.get("/");
 
   try {
     const convertedDates = await result.data.map((event) => {
@@ -68,13 +76,13 @@ export const ShowEventsApi = () => async (dispatch) => {
 
 export const deleteEvent = (id) => {
   return {
-    type: "DELETE_EVENT",
+    type: EVENT_TYPES.DELETE_EVENT,
     payload: id,
   };
 };
 
 export const deleteEventApi = (id) => async (dispatch) => {
-  const result = await event.delete(`/${id}/delete`);
+  const result = await eventServiceApi.delete(`/${id}/delete`);
 
   try {
     const deleted = await result.data;
@@ -89,13 +97,13 @@ export const deleteEventApi = (id) => async (dispatch) => {
 
 const addEvent = (newEvent) => {
   return {
-    type: "ADD_EVENT",
+    type: EVENT_TYPES.ADD_EVENT,
     payload: newEvent,
   };
 };
 
 export const addEventApi = (values) => async (dispatch) => {
-  const result = await event
+  const result = await eventServiceApi
     .post("/", {
       title: values.title,
       start: values.start,
@@ -124,14 +132,14 @@ export const addEventApi = (values) => async (dispatch) => {
 
 const updateEvent = (updatedEvent) => {
   return {
-    type: "UPDATE_EVENT",
+    type: EVENT_TYPES.UPDATE_EVENT,
     payload: updatedEvent,
   };
 };
 
 export const updateEventApi = (values, id) => async (dispatch) => {
   try {
-    const result = await event.put(`/${id}/update`, {
+    const result = await eventServiceApi.put(`/${id}/update`, {
       title: values.title,
       start: values.start,
       end: values.end,
