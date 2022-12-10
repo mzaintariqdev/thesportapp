@@ -9,6 +9,7 @@ import CustomToolbar from "./componets/CustomToolBar";
 import Popping from "../Popping";
 
 import "react-big-calendar/lib/css/react-big-calendar.css";
+import styled from "styled-components";
 
 const MyCalendar = ({ events, ShowEventApi, closeEvent, ShowEventsApi }) => {
   const [open, setOpen] = useState(false);
@@ -59,7 +60,7 @@ const MyCalendar = ({ events, ShowEventApi, closeEvent, ShowEventsApi }) => {
         renderStatus={renderStatus}
         rerender={rerender}
       /> */}
-      <Calendar
+      <StyledCalendar
         defaultDate={new Date("2022-11-03T19:18:27.146Z")}
         localizer={localizer}
         eventPropGetter={eventStyleGetter}
@@ -160,5 +161,43 @@ const MyCalendar = ({ events, ShowEventApi, closeEvent, ShowEventsApi }) => {
     </div>
   );
 };
+
+const StyledCalendar = styled(Calendar)`
+  .rbc-toolbar {
+    background: #ffffff;
+    min-height: 102px;
+    padding: 0 20px;
+    border-radius: 4px;
+    margin-bottom: 0px;
+  }
+
+  .rbc-month-view,
+  .rbc-time-view {
+    background: white;
+    box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.06);
+    border-radius: 4px;
+    min-height: 744px;
+  }
+
+  .rbc-header {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 22px;
+
+    color: #323c47;
+  }
+
+  .rbc-date-cell {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 22px;
+
+    color: #323c47;
+  }
+`;
 
 export default MyCalendar;

@@ -6,9 +6,7 @@ import getDay from "date-fns/getDay";
 import enUS from "date-fns/locale/en-US";
 
 export const eventStyleGetter = function (event, start, end, isSelected) {
-  console.log(event?.status);
   var style = {};
-  var backgroundColor = "#" + event.hexColor;
 
   if (event.status === "unpaid") {
     style = {
@@ -21,7 +19,7 @@ export const eventStyleGetter = function (event, start, end, isSelected) {
     };
   } else {
     style = {
-      backgroundColor: "#d8d8d8",
+      backgroundColor: "#40BAFF",
       borderRadius: "0px",
       opacity: 0.8,
       color: "black",

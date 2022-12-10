@@ -5,7 +5,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import SignIn from "./pages/signIn/SignIn.jsx";
 function Layout() {
   const user = useSelector((state) => state.auth.value.name);
-  console.log(user);
+
   return user ? <MainRoutes /> : <SignIn />;
 }
 

@@ -7,9 +7,21 @@ import { UserOutlined } from "@ant-design/icons";
 
 import { heading, sampleData } from "../../components/table/data";
 import { useNavigate } from "react-router-dom";
+import { DatePicker, Space } from "antd";
 
 const Clients = () => {
   const navigate = useNavigate();
+  const onChange = (date, dateString) => {
+    console.log(date, dateString);
+    var today = new Date("2022-11-04T10:30:00.000Z");
+    console.log(today);
+    console.log(today.toString());
+
+    today.setHours(9, 30, 0);
+    var today_morning = today;
+    console.log(today_morning.toString(), today_morning.toISOString());
+  };
+
   return (
     <Wrapper>
       <UpperDiv></UpperDiv>
@@ -45,6 +57,14 @@ const Clients = () => {
           </DataRow>
         ))}
       </TableData>
+
+      {/* <Space direction="vertical">
+        <DatePicker onChange={onChange} />
+        <DatePicker onChange={onChange} picker="week" />
+        <DatePicker onChange={onChange} picker="month" />
+        <DatePicker onChange={onChange} picker="quarter" />
+        <DatePicker onChange={onChange} picker="year" />
+      </Space> */}
     </Wrapper>
   );
 };
@@ -190,6 +210,7 @@ const Wrapper = styled.div`
   margin-top: 24px;
   height: auto;
   max-height: 697px;
+  min-width: 1110px;
   max-width: 1110px;
   width: auto;
   background: white;
@@ -199,23 +220,3 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 export default Clients;
-// import React from "react";
-
-// import styled from "styled-components";
-// import Table from "../../components/table/tableComp";
-
-// const Clients = () => (
-//   <Wrapper>
-//     <Table />
-//   </Wrapper>
-// );
-// const Wrapper = styled.div`
-//   margin-left: 36px;
-//   margin-right: 38px;
-//   weight: 1110px;
-//   height: auto;
-//   max-weight: 1110px;
-//   max-height: 697px;
-//   filter: drop-shadow(0px 6px 18px rgba(0, 0, 0, 0.06));
-// `;
-// export default Clients;

@@ -5,7 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 import { useNavigate } from "react-router-dom";
-import { set } from "date-fns";
+import { Form } from "antd";
 
 //schema to validate event inputs
 const schema = yup
@@ -52,8 +52,8 @@ const AddEvents = ({ addEventApi, error, onHide }) => {
 
   return (
     //this form is in bootstrab
-    <form
-      onSubmit={handleSubmit(onSubmit)}
+    <Form
+      onFinish={handleSubmit(onSubmit)}
       className=" align-content-center m-5"
     >
       <div className="mb-4">
@@ -204,7 +204,7 @@ const AddEvents = ({ addEventApi, error, onHide }) => {
       <button type="submit" className="btn btn-success">
         Create
       </button>
-    </form>
+    </Form>
   );
 };
 
