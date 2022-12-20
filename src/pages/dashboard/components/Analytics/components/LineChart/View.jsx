@@ -9,21 +9,13 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  ResponsiveContainer,
-  Label,
 } from "recharts";
-import { PieChart, Pie, Cell } from "recharts";
-import { ReactComponent as DropDown } from "../../assets/icons/dropdown-arrow.svg";
+
+import { ReactComponent as DropDown } from "../../../../../../assets/icons/dropdown-arrow.svg";
 
 const { Option } = Select;
 const timeVariation = ["Monthly", "Weekly", "Daily"];
-function Analytics() {
-  const dataCircle = [
-    { name: "Group A", value: 600 },
-    { name: "Group B", value: 100 },
-    { name: "Group C", value: 300 },
-  ];
-  const COLORS = ["#2ED47A", "#F7685B", "#FFB946"];
+function LineChart() {
   const data = [
     {
       name: "1",
@@ -69,11 +61,7 @@ function Analytics() {
     },
   ];
 
-  const [variationPie, setPieVariation] = useState("Monthly");
   const [variationLine, setLineVariation] = useState("Monthly");
-  const handlePieChartChange = (value) => {
-    setPieVariation(value);
-  };
 
   const handleLineChartChange = (value) => {
     setLineVariation(value);
@@ -133,66 +121,6 @@ function Analytics() {
           </AreaChart>
         </SubWrapper>
       </Wrapper>
-      <PieWrapper>
-        <TasksWrapper>
-          <Deals>Tasks</Deals>
-          <ShowWrapper>
-            <ShowHeading>Show:</ShowHeading>
-            <AntSelect
-              suffixIcon={<DropDown />}
-              bordered={false}
-              defaultValue={timeVariation[0]}
-              style={{
-                width: 94,
-              }}
-              onChange={handlePieChartChange}
-            >
-              {timeVariation.map((province) => (
-                <Option key={province}>{province} </Option>
-              ))}
-            </AntSelect>
-          </ShowWrapper>
-        </TasksWrapper>
-        <Hr />
-        <SubPieWrapper>
-          <div style={{ width: "50%", height: 224 }}>
-            <ResponsiveContainer>
-              <PieChart>
-                <Pie
-                  data={dataCircle}
-                  innerRadius="90%"
-                  outerRadius="100%"
-                  fill="#8884d8"
-                  dataKey="value"
-                >
-                  {dataCircle.map((entry, index) => (
-                    <Cell
-                      key={`cell-${index}`}
-                      fill={COLORS[index % COLORS.length]}
-                    />
-                  ))}
-                  <Label style={StyledLabel} position="center">
-                    60%
-                  </Label>
-                </Pie>
-              </PieChart>
-            </ResponsiveContainer>
-          </div>
-          <TicksWrapper>
-            <SubTicksWrapper>
-              <Ticks borderColor="#ffb946" />
-              <TickTag>Canceled</TickTag>
-            </SubTicksWrapper>
-            <SubTicksWrapper>
-              <Ticks borderColor="#2ED47A" />
-              <TickTag>Paid</TickTag>
-            </SubTicksWrapper>
-            <SubTicksWrapper>
-              <Ticks borderColor="#F7685B" /> <TickTag>Unpaid</TickTag>
-            </SubTicksWrapper>
-          </TicksWrapper>
-        </SubPieWrapper>
-      </PieWrapper>
     </MainWrapper>
   );
 }
@@ -374,4 +302,4 @@ const PieWrapper = styled.div`
 const SubWrapper = styled.div`
   background: white;
 `;
-export default Analytics;
+export default LineChart;

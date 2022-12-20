@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import DashboardWeeklyCalender from "../../components/dashboardWeeklyCalender/dashboardWeeklyCalender";
-import Analytics from "./analytics";
-import TopAnalytics from "./topAnalytics";
+import Analytics from "./components/Analytics";
+import StatsHeader from "./components/StatsHeader";
 
 function DashBoard() {
   return (
     <Wrapper>
-      <TopAnalytics />
+      <StatsHeader />
       <AnalyticsWrapper>
         <DashboardWeeklyCalender />
         <Analytics />

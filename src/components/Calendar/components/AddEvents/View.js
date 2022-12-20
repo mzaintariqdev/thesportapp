@@ -5,7 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 import { useNavigate } from "react-router-dom";
-import { Form } from "antd";
+import { Col, Form, Input, Row, Select } from "antd";
 
 //schema to validate event inputs
 const schema = yup
@@ -40,63 +40,186 @@ const AddEvents = ({ addEventApi, error, onHide }) => {
   });
 
   const onSubmit = async (values) => {
+    console.log(values);
     setFirstRender(false);
     addEventApi(values).then(() => {
       setRerender(!rerender);
     });
     setTimeout(() => {
       console.log("Close Modal");
-      onHide();
+      // onHide();
     }, 1500);
   };
 
   return (
     //this form is in bootstrab
     <Form
-      onFinish={handleSubmit(onSubmit)}
+      title="New Booking"
+      layout="vertical"
+      onFinish={onSubmit}
+      initialValues={{
+        recurrence: "Does Not Repeat",
+      }}
       className=" align-content-center m-5"
     >
+      <Col>
+        <Form.Item
+          name="client"
+          label="Client"
+          tooltip="What do you want others to call you?"
+          rules={[
+            {
+              required: true,
+              message: "Please input your nickname!",
+              whitespace: true,
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+      </Col>
+      <Col>
+        <Form.Item
+          name="resource"
+          label="Resource"
+          tooltip="What do you want others to call you?"
+          rules={[
+            {
+              required: true,
+              message: "Please input your resource!",
+              whitespace: true,
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+      </Col>
+      <Col>
+        <Form.Item
+          name="nickname"
+          label="Nickname"
+          tooltip="What do you want others to call you?"
+          rules={[
+            {
+              required: true,
+              message: "Please input your nickname!",
+              whitespace: true,
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+      </Col>
+      <Col>
+        <Form.Item
+          name="date"
+          label="Date"
+          rules={[
+            {
+              required: true,
+              message: "Please select your date",
+            },
+          ]}
+        >
+          <DatePicker
+            minDate={new Date()}
+            autoComplete="off"
+            placeholderText="Select end date"
+            timeFormat="HH:mm"
+            dateFormat="MMMM d, yyyy h:mm aa"
+            showTimeSelect
+            className="form-control"
+            id="end"
+          />
+        </Form.Item>
+      </Col>
+      <Col>
+        <Form.Item name="recurrence" label="Recurrence">
+          <Select
+            showSearch
+            optionFilterProp="children"
+            filterOption={(input, option) =>
+              (option?.label ?? "").includes(input)
+            }
+            filterSort={(optionA, optionB) =>
+              (optionA?.label ?? "")
+                .toLowerCase()
+                .localeCompare((optionB?.label ?? "").toLowerCase())
+            }
+            options={[
+              {
+                value: "Does Not Repeat",
+                label: "Does Not Repeat",
+              },
+              {
+                value: "Daily",
+                label: "Daily",
+              },
+              {
+                value: "Weekly on Tuesday",
+                label: "Weekly on Tuesday",
+              },
+              {
+                value: "Monthly on fourth Tuesday",
+                label: "Monthly on fourth Tuesday",
+              },
+            ]}
+          />
+        </Form.Item>
+      </Col>
+      <button type="submit" className="btn btn-success">
+        Create
+      </button>
+    </Form>
+  );
+};
+
+export default AddEvents;
+
+const comp = () => {
+  return (
+    <>
       <div className="mb-4">
         <label htmlFor="client" className="form-label">
           Client Name
         </label>
         <input
-          {...register("client")}
+          // {...register("client")}
           type="text"
           placeholder="client"
           className="form-control"
           id="client"
           aria-describedby="client"
         />
-        <p
+        {/* <p
           className={`error text-warning position-absolute ${
             errors.title ? "active" : ""
           }`}
         >
           {errors.title ? <i className="bi bi-info-circle me-2"></i> : ""}
           {errors.title?.message}
-        </p>
+        </p> */}
       </div>
       <div className="mb-4">
         <label htmlFor="title" className="form-label">
           Event Title
         </label>
         <input
-          {...register("title")}
+          // {...register("title")}
           type="text"
           placeholder="title"
           className="form-control"
           id="title"
           aria-describedby="title"
         />
-        <p
+        {/* <p
           className={`error text-warning position-absolute ${
             errors.title ? "active" : ""
           }`}
         >
           {errors.title ? <i className="bi bi-info-circle me-2"></i> : ""}
           {errors.title?.message}
-        </p>
+        </p> */}
       </div>
       <div className="mb-4" style={{ zIndex: "100" }}>
         <label htmlFor="start" className="form-label">
@@ -105,7 +228,7 @@ const AddEvents = ({ addEventApi, error, onHide }) => {
         {/* controllers are the way you can wrap and use datePicker inside react form-hook*/}
         {/* start date controller*/}
         <Controller
-          control={control}
+          // control={control}
           name="start"
           render={({ field }) => (
             <DatePicker
@@ -124,22 +247,22 @@ const AddEvents = ({ addEventApi, error, onHide }) => {
           )}
         />
         {/* error handling */}
-        <p
+        {/* <p
           className={`error text-warning position-absolute ${
             errors.start ? "active" : ""
           }`}
         >
           {errors.start ? <i className=" bi bi-info-circle me-2"></i> : ""}
           {errors.start?.message}
-        </p>
-        <p
+        </p> */}
+        {/* <p
           className={`error text-warning position-absolute ${
             dbError.start ? "" : "d-none"
           }`}
         >
           {dbError.start ? <i className=" bi bi-info-circle me-2"></i> : ""}
           {dbError.start}
-        </p>
+        </p> */}
       </div>
       <div className="mb-4" style={{ zIndex: "100" }}>
         <label htmlFor="end" className="form-label">
@@ -147,7 +270,7 @@ const AddEvents = ({ addEventApi, error, onHide }) => {
         </label>
         {/* end date controller*/}
         <Controller
-          control={control}
+          // control={control}
           name="end"
           render={({ field }) => (
             <DatePicker
@@ -165,14 +288,14 @@ const AddEvents = ({ addEventApi, error, onHide }) => {
             />
           )}
         />
-        <p
+        {/* <p
           className={`error text-warning position-absolute ${
             dbError.end ? "" : "d-none"
           }`}
         >
           {dbError.end ? <i className=" bi bi-info-circle me-2"></i> : ""}
           {dbError.end}
-        </p>
+        </p> */}
       </div>
       <div className="mb-4">
         <label htmlFor="describe" className="form-label">
@@ -180,7 +303,7 @@ const AddEvents = ({ addEventApi, error, onHide }) => {
           <span className="text-danger small">(optional)</span>
         </label>
         <input
-          {...register("describe")}
+          // {...register("describe")}
           type="text"
           placeholder="describe your event"
           className="form-control"
@@ -193,7 +316,7 @@ const AddEvents = ({ addEventApi, error, onHide }) => {
           Status
         </label>
         <input
-          {...register("status")}
+          // {...register("status")}
           type="text"
           placeholder="status your event"
           className="form-control"
@@ -201,11 +324,6 @@ const AddEvents = ({ addEventApi, error, onHide }) => {
           aria-describedby="status"
         />
       </div>
-      <button type="submit" className="btn btn-success">
-        Create
-      </button>
-    </Form>
+    </>
   );
 };
-
-export default AddEvents;

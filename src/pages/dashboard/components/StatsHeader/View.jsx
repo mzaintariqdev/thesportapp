@@ -1,27 +1,28 @@
 import styled from "styled-components";
-import { ReactComponent as TopAnalyticsOne } from "../../assets/icons/top-analytics-one.svg";
-import { ReactComponent as TopAnalyticsTwo } from "../../assets/icons/top-analytics-two.svg";
-import { ReactComponent as TopAnalyticsThree } from "../../assets/icons/top-analytics-three.svg";
-import StatContainer from "./statContainer";
 
-function TopAnalytics() {
+import { ReactComponent as TopAnalyticsOne } from "../../../../assets/icons/top-analytics-one.svg";
+import { ReactComponent as TopAnalyticsTwo } from "../../../../assets/icons/top-analytics-two.svg";
+import { ReactComponent as TopAnalyticsThree } from "../../../../assets/icons/top-analytics-three.svg";
+import StatsContainer from "./components/StatsContainer";
+
+function StatsHeader() {
   return (
     <Wrapper>
-      <StatContainer
+      <StatsContainer
         StatIcon={<TopAnalyticsOne />}
         heading={"Earning"}
         balance="$198k"
         percentage={"3%"}
       />
       <Divider />
-      <StatContainer
+      <StatsContainer
         StatIcon={<TopAnalyticsTwo />}
         heading="Balance"
         balance="$2.4k"
         percentage={"3%"}
       />
       <Divider />
-      <StatContainer
+      <StatsContainer
         StatIcon={<TopAnalyticsThree />}
         heading="Total Sales"
         balance="$89k"
@@ -48,4 +49,4 @@ const Wrapper = styled.div`
   min-height: 102px;
   background: white;
 `;
-export default TopAnalytics;
+export default StatsHeader;

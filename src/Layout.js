@@ -1,8 +1,8 @@
 import React from "react";
-import MainRoutes from "./MainRoutes";
+import MainRoutes from "./routes/MainRoutes";
 import { useSelector } from "react-redux";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import SignIn from "./pages/signIn/SignIn.jsx";
+import SignIn from "./pages/signIn";
+
 function Layout() {
   const user = useSelector((state) => state.auth.value.name);
 

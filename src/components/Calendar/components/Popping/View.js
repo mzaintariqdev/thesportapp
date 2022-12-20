@@ -1,4 +1,4 @@
-import { Modal, Button } from "react-bootstrap";
+import { Modal, Button } from "antd";
 import React from "react";
 import "../../style/model.scss";
 import { Link } from "react-router-dom";

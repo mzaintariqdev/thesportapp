@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import { ReactComponent as ArrowUp } from "../../assets/icons/arrow-up-green.svg";
 
-function StatContainer({ StatIcon, heading, balance, percentage }) {
+import { ReactComponent as ArrowUp } from "../../../../../../assets/icons/arrow-up-green.svg";
+
+function StatsContainer({ StatIcon, heading, balance, percentage }) {
   return (
     <Wrapper>
       {StatIcon}
@@ -72,4 +73,5 @@ const Wrapper = styled.div`
   width: 234px;
   height: 83px;
 `;
-export default StatContainer;
+
+export default StatsContainer;

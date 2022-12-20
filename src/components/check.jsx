@@ -1,6 +1,7 @@
 import { Table } from "antd";
 import styled from "styled-components";
 import "antd/dist/antd.min.css";
+
 const AntTable = styled(Table)`
   .ant-table-thead > tr {
     border: 2px solid yellow;

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Calendar } from "react-big-calendar";
-import { Modal } from "react-bootstrap";
 
 import AddEvents from "../AddEvents";
 import CustomEventComponent from "./componets/CustomEventComponent";
@@ -8,8 +7,8 @@ import { eventStyleGetter, localizer } from "./helper";
 import CustomToolbar from "./componets/CustomToolBar";
 import Popping from "../Popping";
 
-import "react-big-calendar/lib/css/react-big-calendar.css";
 import styled from "styled-components";
+import { Modal } from "antd";
 
 const MyCalendar = ({ events, ShowEventApi, closeEvent, ShowEventsApi }) => {
   const [open, setOpen] = useState(false);
@@ -49,8 +48,8 @@ const MyCalendar = ({ events, ShowEventApi, closeEvent, ShowEventsApi }) => {
   };
 
   return (
-    <div>
-      <Modal show={openModal} onHide={handleHide}>
+    <CalendarWrapper>
+      <Modal footer={false} visible={openModal} onCancel={handleHide}>
         <AddEvents onHide={handleHide} />
       </Modal>
       {/* <Popping
@@ -158,10 +157,11 @@ const MyCalendar = ({ events, ShowEventApi, closeEvent, ShowEventsApi }) => {
         style={{ height: 500, margin: 50, fontFamily: "Patrick Hand" }}
         onSelectEvent={openEventClick}
       />
-    </div>
+    </CalendarWrapper>
   );
 };
 
+const CalendarWrapper = styled.div``;
 const StyledCalendar = styled(Calendar)`
   .rbc-toolbar {
     background: #ffffff;
