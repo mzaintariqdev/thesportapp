@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Layout } from "antd";
 
-import Clients from "../pages/clients/Clients";
+import Clients from "../pages/clients";
 import Sidebar from "../components/Sidebar/Sidebar";
 import Header from "../components/header/header";
 import ClientProfile from "../pages/client-profile/clientProfile";

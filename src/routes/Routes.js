@@ -10,6 +10,6 @@ const scheduleUrl = "/schedule";
 export const routes = {
   homeUrl,
   clients: clientUrls.clients,
-  clientProfile: clientUrls.clientProfile,
+  clientProfile: `${clientUrls.clientProfile}/:id`,
   scheduleUrl,
 };
