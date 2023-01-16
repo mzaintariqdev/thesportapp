@@ -1,6 +1,6 @@
 const ROLES = {
-  club: "Club",
-  admin: "Admin",
+  club: "club",
+  admin: "admin",
 };
 
 export default ROLES;

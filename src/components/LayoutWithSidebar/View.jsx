@@ -4,7 +4,7 @@ import { Layout } from "antd";
 
 import PrivateRoute from "./components/PrivateRoute";
 import { routes } from "../../routes/Routes";
-import Sidebar from "../components/Sidebar/Sidebar";
+import Sidebar from "../components/Sidebar";
 import Header from "../components/header/header";
 import styled from "styled-components";
 import ROLES from "../../utils/constants/roles";
