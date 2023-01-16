@@ -1,23 +1,19 @@
 import React from "react";
 import { Redirect, Route } from "react-router-dom";
+import { routes } from "../../../../routes/Routes";
 
 export const PrivateRoute = (props) => {
   const {
     userType,
-    isAuthenticationChecked,
     permittedUserTypes,
     path,
     exact,
     Component,
     isAuthenticated,
   } = props;
-  console.log("sdsd", path, exact, isAuthenticated);
-  // if (!isAuthenticationChecked) {
-  //   return null;
-  // }
 
-  if (!isAuthenticated) {
-    return <Redirect to="/login" />;
+  if (!isAuthenticated || !permittedUserTypes.includes(userType)) {
+    return <Redirect to={routes.loginUrl} />;
   }
 
   return <Route path={path} exact={exact} component={Component} />;

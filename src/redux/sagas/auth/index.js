@@ -22,8 +22,7 @@ function* checkIsUserAuthenticated() {
     const user = jwt_decode(token);
     yield put(loginSuccess({ user }));
   } else {
-    // window.location("/login");
-    history.push("/login");
+    history.push(routes.loginUrl);
   }
 
   yield put(setAuthenticationChecked());

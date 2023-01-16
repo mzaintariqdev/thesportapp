@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import VenueLogo from "../../assets/img/Rectangle.svg";
 import BannerImage from "../../assets/img/image 5.svg";
-import SignInForm from "./components/SignInForm";
-import "./SignIn.css";
+import LogInForm from "./components/LogInForm";
+import "./LogIn.scss";
 
 function Login() {
   return (
@@ -18,8 +18,8 @@ function Login() {
           <Address>JBR, Dubai, United Arab Emirates</Address>
         </BannerRight>
       </Banner>
-      <div className="SignInForm">
-        <SignInForm />
+      <div className="LogInForm">
+        <LogInForm />
       </div>
     </MainWrapper>
   );

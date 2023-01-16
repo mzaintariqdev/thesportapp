@@ -53,7 +53,7 @@ function LayoutWithSidebar(props) {
               Component={Schedule}
               permittedUserTypes={[ROLES.admin, ROLES.club]}
             />
-            <Redirect to="/" />
+            <Redirect to={routes.homeUrl} />
           </Switch>
         </Content>
       </SidebarLayout>
