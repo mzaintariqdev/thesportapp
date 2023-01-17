@@ -21,7 +21,6 @@ const handleAuthenticationChecked = (state) => {
   return state;
 };
 
-// eslint-disable-next-line default-param-last
 export default produce((state = defaultState, action) => {
   switch (action.type) {
     case types.LOGIN_SUCCESS:

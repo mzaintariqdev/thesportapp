@@ -1,6 +1,5 @@
 import mockAuthUsers from "../utils/mocks/mockAuthUsers";
-
-export const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+import { sleep } from "./utils/helpers";
 
 export const loginApiService = async (data) => {
   const { username, password } = data;

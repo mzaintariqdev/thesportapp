@@ -14,10 +14,11 @@ function LogInForm(props) {
   const onFinish = useCallback(() => (data) => actions.login(data), [actions]);
 
   useEffect(() => usernameRef.current?.focus(), []);
-  console.log(isAuthenticated);
+
   if (isAuthenticated) {
     return <Redirect to="/" />;
   }
+
   return (
     <Spin spinning={isLoading}>
       <Form

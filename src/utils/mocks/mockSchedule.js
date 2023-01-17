@@ -1,0 +1,98 @@
+export const mockSchedule = [
+  {
+    customer: "Zain",
+    end: new Date("2022-11-04T10:30:00.000Z"),
+    start: new Date("2022-11-04T04:30:00.000Z"),
+    title: "Event 1",
+  },
+  {
+    customer: "Zain",
+    end: new Date("2022-11-04T08:00:00.000Z"),
+    start: new Date("2022-11-04T06:00:00.000Z"),
+    title: "Event 2",
+  },
+  {
+    customer: "Zain",
+    end: new Date("2022-11-04T06:30:00.000Z"),
+    start: new Date("2022-11-04T04:30:00.000Z"),
+    title: "Event 3",
+  },
+  {
+    customer: "Zain",
+    end: new Date("2022-11-04T05:30:00.000Z"),
+    start: new Date("2022-11-04T04:30:00.000Z"),
+    title: "Event 4",
+  },
+  {
+    customer: "Zain",
+    end: new Date("2022-11-04T06:00:00.000Z"),
+    start: new Date("2022-11-04T05:00:00.000Z"),
+    title: "Event 5",
+  },
+  {
+    customer: "Zain",
+    end: new Date("2022-11-04T06:00:00.000Z"),
+    start: new Date("2022-11-04T05:00:00.000Z"),
+    title: "Event 6",
+  },
+  {
+    customer: "Zain",
+    end: new Date("2022-11-04T05:30:00.000Z"),
+    start: new Date("2022-11-04T04:30:00.000Z"),
+    title: "Event 7",
+  },
+  {
+    customer: "Zain",
+    end: new Date("2022-11-04T05:30:00.000Z"),
+    start: new Date("2022-11-04T04:30:00.000Z"),
+    title: "Event 8",
+  },
+  {
+    customer: "Zain",
+    end: new Date("2022-11-04T05:30:00.000Z"),
+    start: new Date("2022-11-04T04:30:00.000Z"),
+    title: "Event 9",
+  },
+  {
+    customer: "Zain",
+    end: new Date("2022-11-04T07:30:00.000Z"),
+    start: new Date("2022-11-04T05:30:00.000Z"),
+    title: "Event 10",
+  },
+  {
+    customer: "Zain",
+    end: new Date("2022-11-04T08:00:00.000Z"),
+    start: new Date("2022-11-04T07:00:00.000Z"),
+    title: "Event 11",
+  },
+  {
+    customer: "Zain",
+    end: new Date("2022-11-04T08:00:00.000Z"),
+    start: new Date("2022-11-04T07:00:00.000Z"),
+    title: "Event 12",
+  },
+  {
+    customer: "Zain",
+    end: new Date("2022-11-04T08:00:00.000Z"),
+    start: new Date("2022-11-04T07:00:00.000Z"),
+    title: "Event 13",
+  },
+  {
+    customer: "Zain",
+    end: new Date("2022-11-04T08:00:00.000Z"),
+    start: new Date("2022-11-04T07:00:00.000Z"),
+    title: "Event 14",
+  },
+  {
+    customer: "Zain",
+    end: new Date("2022-11-04T03:00:00.000Z"),
+    start: new Date("2022-11-04T01:30:00.000Z"),
+    title: "Event 15",
+  },
+  {
+    customer: "Zain",
+    end: new Date("2022-11-04T12:30:00.000Z"),
+    start: new Date("2022-11-04T11:00:00.000Z"),
+    title: "Event 16",
+  },
+];
