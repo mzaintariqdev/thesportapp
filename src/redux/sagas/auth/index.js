@@ -68,6 +68,7 @@ function* handleLogin(action) {
 function* logout() {
   localStorage.removeItem("token");
   yield put(resetAuth());
+  window.location.reload();
 }
 
 export default function* authSagas() {

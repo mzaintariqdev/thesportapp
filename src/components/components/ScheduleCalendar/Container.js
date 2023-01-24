@@ -15,10 +15,9 @@
 // });
 
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-
-import { addBooking } from "../../../redux/actions/schedule";
 import { selectBookings } from "../../../redux/selectors/schedule";
+import { addBookingDate, setBookingId } from "../../../redux/actions/schedule";
+import { bindActionCreators } from "redux";
 
 const mapStateToProps = (state) => ({
   bookings: selectBookings(state),
@@ -27,7 +26,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators(
     {
-      addBooking,
+      addBookingDate,
+      setBookingId,
     },
     dispatch
   ),

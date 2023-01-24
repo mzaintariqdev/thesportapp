@@ -5,7 +5,7 @@ import ToggleButton from "../../../assets/icons/toggleButton.svg";
 import { ReactComponent as SettingsLogo } from "../../../assets/icons/settings.svg";
 import AntDivider from "../ant/Divider";
 import sidebarOptionsByRole from "./utils/constants";
-import { Menu, Layout } from "antd";
+import { Menu, Layout, Button } from "antd";
 import classnames from "classnames";
 import SidebarHeader from "./components/SidebarHeader/View";
 import "./Sidebar.scss";
@@ -13,7 +13,7 @@ import "./Sidebar.scss";
 const { Sider } = Layout;
 
 function Sidebar(props) {
-  const { userType } = props;
+  const { userType, actions } = props;
   const [collapsed, setCollapsed] = useState(false);
   const history = useHistory();
 
@@ -65,6 +65,7 @@ function Sidebar(props) {
             </p>
           )}
         </Settings>
+        <Button onClick={actions.logout}>Logout</Button>
         <Toggle
           collapsed={collapsed}
           onClick={() => {

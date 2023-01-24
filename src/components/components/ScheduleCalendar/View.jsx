@@ -1,32 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Calendar } from "react-big-calendar";
 
-// import AddEvents from "./components/AddEvents";
 import CustomEventComponent from "./components/CustomEventComponent";
 import { eventStyleGetter, localizer } from "./helper";
 import CustomToolbar from "./components/CustomToolBar";
-// import Popping from "./components/Popping";
 
 import styled from "styled-components";
-import { Modal } from "antd";
+
+import AddBookings from "./components/AddBookings";
+import EditBooking from "./components/EditBooking";
 
 const ScheduleCalendar = (props) => {
   const { bookings, actions } = props;
-  console.log("bookings", bookings);
-  const [open, setOpen] = useState(false);
-  const [openModal, setOpenModal] = useState(false);
-  const [renderStatus, rerender] = useState(false);
-
-  useEffect(() => {
-    // ShowEventsApi();
-  }, []);
-
-  useEffect(() => {
-    // ShowEventsApi();
-  }, [renderStatus]);
 
   const openEventClick = (event) => {
-    setOpen(true);
+    console.log(event);
+    actions.setBookingId(event);
     if (event.id) {
       // ShowEventApi(event.id);
     }
@@ -35,38 +24,35 @@ const ScheduleCalendar = (props) => {
   };
 
   const closeEventClick = () => {
-    setOpen(false);
     // setTimeout(() => closeEvent(), 300);
   };
 
   const handleSelect = (e) => {
-    setOpenModal(true);
-
-    console.log("selected box");
+    actions.addBookingDate({ date: e.start });
   };
 
-  const handleHide = () => {
-    setOpenModal(false);
-  };
+  const startOfDay = new Date();
+  startOfDay.setHours(0, 0, 0, 0);
+  const endOfDay = new Date();
+  endOfDay.setHours(23, 59, 59, 999);
 
   return (
     <CalendarWrapper>
-      <Modal footer={false} visible={openModal} onCancel={handleHide}>
-        {/* <AddEvents onHide={handleHide} /> */}
-      </Modal>
-      {/* <Popping
-        open={open}
-        handleOpen={openEventClick}
-        handleClose={closeEventClick}
-        renderStatus={renderStatus}
-        rerender={rerender}
-      /> */}
+      <AddBookings />
+      <EditBooking />
       <StyledCalendar
-        defaultDate={new Date("2022-11-03T19:18:27.146Z")}
         localizer={localizer}
+        // formats={{
+        //   timeGutterFormat: "HH:mm",
+        // }}
+        formats={{
+          timeGutterFormat: "HH:mm",
+        }}
         eventPropGetter={eventStyleGetter}
         // events={events}
+
         events={bookings}
+        step={30}
         selectable={true}
         components={{ event: CustomEventComponent, toolbar: CustomToolbar }}
         onSelectSlot={(e) => {
@@ -75,6 +61,9 @@ const ScheduleCalendar = (props) => {
         startAccessor="start"
         longPressThreshold={10}
         endAccessor="end"
+        defaultDate={new Date()}
+        min={startOfDay}
+        max={endOfDay}
         style={{ height: 500, margin: 50, fontFamily: "Patrick Hand" }}
         onSelectEvent={openEventClick}
       />

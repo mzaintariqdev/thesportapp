@@ -2,10 +2,15 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
 import { getScheduleBookings } from "../../redux/actions/schedule";
-import { selectIsScheduleLoading } from "../../redux/selectors/schedule";
+import {
+  selectBookings,
+  selectIsScheduleLoading,
+} from "../../redux/selectors/schedule";
 
 const mapStateToProps = (state) => ({
   isScheduleLoading: selectIsScheduleLoading(state),
+
+  bookings: selectBookings(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

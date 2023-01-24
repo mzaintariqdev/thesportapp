@@ -4,6 +4,12 @@ import {
   types,
   setScheduleBookings,
   setIsScheduleLoading,
+  setIsAddModalOpen,
+  setBookingDate,
+  setScheduleBookingsOnAddBooking,
+  setIsModalLoading,
+  setIsEditModalOpen,
+  getBookingById,
 } from "../../actions/schedule";
 
 import showNotifications from "../../../services/utils/showNotification";
@@ -15,11 +21,18 @@ import { sleep } from "../../../services/utils/helpers";
 
 function* handleAddBooking(action) {
   const { data } = action.payload;
-  yield put(setIsScheduleLoading({ isLoading: true }));
+  yield put(setIsModalLoading({ isModalLoading: true }));
   const { error } = yield call(addBookingService, data);
   if (error) {
     showNotifications(error, true, error.status);
+    yield put(setIsModalLoading({ isModalLoading: false }));
   } else {
+    yield put(setIsModalLoading({ isModalLoading: false }));
+    yield put(setIsAddModalOpen({ open: false }));
+    yield put(setIsScheduleLoading({ isLoading: true }));
+
+    yield put(setScheduleBookingsOnAddBooking({ data }));
+
     showNotifications("Booking successfully added.");
   }
   yield put(setIsScheduleLoading({ isLoading: false }));
@@ -38,9 +51,27 @@ function* handleGetBookings() {
   yield put(setIsScheduleLoading({ isLoading: false }));
 }
 
+function* handleSetBookingDate(action) {
+  const { date } = action.payload;
+
+  yield put(setBookingDate({ date }));
+  sleep(2000);
+  yield put(setIsAddModalOpen({ open: true }));
+}
+
+function* handleSetBookingId(action) {
+  const { date } = action.payload;
+
+  yield put(getBookingById({ date }));
+  sleep(2000);
+  yield put(setIsEditModalOpen({ open: true }));
+}
+
 export default function* scheduleSagas() {
   yield all([
     takeLatest(types.ADD_BOOKING, handleAddBooking),
+    takeLatest(types.SET_BOOKING_ID, handleSetBookingId),
+    takeLatest(types.ADD_BOOKING_DATE, handleSetBookingDate),
     takeLatest(types.GET_SCHEDULE_BOOKINGS, handleGetBookings),
   ]);
 }
