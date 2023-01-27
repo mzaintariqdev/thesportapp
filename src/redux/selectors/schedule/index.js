@@ -1,4 +1,4 @@
-import { createSelector } from "reselect";
+import { createSelector } from 'reselect';
 
 const selectSchedule = (state) => state.scheduleReducer;
 
@@ -25,6 +25,16 @@ export const selectIsAddModalOpen = createSelector(
 export const selectIsModalLoading = createSelector(
   selectSchedule,
   (state) => state.isModalLoading
+);
+
+export const selectBookingId = createSelector(
+  selectSchedule,
+  (state) => state.selectedBookingId
+);
+
+export const selectBookingData = createSelector(
+  selectSchedule,
+  (state) => state.selectedBooking
 );
 
 export const selectIsEditModalOpen = createSelector(

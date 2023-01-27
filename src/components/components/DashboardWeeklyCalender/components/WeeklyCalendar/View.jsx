@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
-const Days = ["SUN", "MON", "TUE", "WED", "THR", "FRI", "SAT"];
+const Days = ['SUN', 'MON', 'TUE', 'WED', 'THR', 'FRI', 'SAT'];
 const currentDate = new Date();
 
 function WeeklyCalender() {
@@ -11,13 +11,7 @@ function WeeklyCalender() {
     d.setDate(d.getDate() - d.getDay() + idx);
     return d;
   });
-  console.log(
-    Array.from(Array(7).keys()).map((idx) => {
-      const d = new Date();
-      d.setDate(d.getDate() - d.getDay() + idx);
-      return d;
-    })
-  );
+
   return (
     <Wrapper>
       {weeklyDates.map((date, index) => (
@@ -63,7 +57,7 @@ const SelectedDate = styled.p`
   width: 24px;
   height: 24px;
   background: #109cf1;
-  font-family: "Poppins";
+  font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -76,7 +70,7 @@ const SelectedDate = styled.p`
 const DateContent = styled.p`
   margin: 0;
   cursor: pointer;
-  font-family: "Poppins";
+  font-family: 'Poppins';
   border-radius: 25px;
   width: 24px;
   height: 24px;
@@ -86,7 +80,7 @@ const DateContent = styled.p`
   line-height: 18px;
   text-align: center;
   letter-spacing: 0.01em;
-  color: ${(p) => (p.currentDate === true ? "#109CF1" : "#4c5862")};
+  color: ${(p) => (p.currentDate === true ? '#109CF1' : '#4c5862')};
 `;
 const DayWrapper = styled.div`
   display: flex;
@@ -96,15 +90,15 @@ const DayWrapper = styled.div`
 const Day = styled.p`
   margin: 0;
   margin-bottom: 8px;
-  font-family: "Poppins";
+  font-family: 'Poppins';
   font-style: normal;
   font-weight: 500;
   font-size: 13px;
   line-height: 20px;
   text-align: center;
   letter-spacing: 0.01em;
-  color: ${(p) => (p.currentDate === true ? "#109CF1" : "#334d6e")};
-  opacity: ${(p) => (p.currentDate === true ? "1" : "0.5")}; ;
+  color: ${(p) => (p.currentDate === true ? '#109CF1' : '#334d6e')};
+  opacity: ${(p) => (p.currentDate === true ? '1' : '0.5')}; ;
 `;
 const Wrapper = styled.div`
   display: flex;

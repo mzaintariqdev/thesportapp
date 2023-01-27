@@ -1,4 +1,4 @@
-import { all, call, put, takeLatest } from "redux-saga/effects";
+import { all, call, put, takeLatest } from 'redux-saga/effects';
 
 import {
   types,
@@ -10,14 +10,18 @@ import {
   setIsModalLoading,
   setIsEditModalOpen,
   getBookingById,
-} from "../../actions/schedule";
+  setBookingsOnDelete,
+  setBookingById,
+} from '../../actions/schedule';
 
-import showNotifications from "../../../services/utils/showNotification";
+import showNotifications from '../../../services/utils/showNotification';
 import {
   addBookingService,
+  deleteBookingsApiService,
+  getBookingByIdService,
   getBookings,
-} from "../../../services/scheduleServices";
-import { sleep } from "../../../services/utils/helpers";
+} from '../../../services/scheduleServices';
+import { sleep } from '../../../services/utils/helpers';
 
 function* handleAddBooking(action) {
   const { data } = action.payload;
@@ -33,7 +37,7 @@ function* handleAddBooking(action) {
 
     yield put(setScheduleBookingsOnAddBooking({ data }));
 
-    showNotifications("Booking successfully added.");
+    showNotifications('Booking successfully added.');
   }
   yield put(setIsScheduleLoading({ isLoading: false }));
 }
@@ -44,7 +48,7 @@ function* handleGetBookings() {
   const { data: bookings, error } = yield call(getBookings);
 
   if (error) {
-    showNotifications("error");
+    showNotifications('error');
   } else {
     yield put(setScheduleBookings({ bookings }));
   }
@@ -67,9 +71,34 @@ function* handleSetBookingId(action) {
   yield put(setIsEditModalOpen({ open: true }));
 }
 
+function* handleDeleteBookingId(action) {
+  const { id } = action.payload;
+  const { error, data } = yield call(deleteBookingsApiService, id);
+  if (error) {
+    showNotifications(data.message);
+  } else {
+    showNotifications(data.message);
+    yield put(setBookingsOnDelete({ id }));
+  }
+}
+
+function* handleGetBookingId(action) {
+  yield put(setIsModalLoading({ isModalLoading: true }));
+  const { id } = action.payload;
+  const { error, data } = yield call(getBookingByIdService, id);
+  if (error) {
+    showNotifications(error);
+  } else {
+    yield put(setBookingById({ data }));
+  }
+  yield put(setIsModalLoading({ isModalLoading: false }));
+}
+
 export default function* scheduleSagas() {
   yield all([
+    takeLatest(types.GET_BOOKING_BY_ID, handleGetBookingId),
     takeLatest(types.ADD_BOOKING, handleAddBooking),
+    takeLatest(types.DELETE_BOOKING_BY_ID, handleDeleteBookingId),
     takeLatest(types.SET_BOOKING_ID, handleSetBookingId),
     takeLatest(types.ADD_BOOKING_DATE, handleSetBookingDate),
     takeLatest(types.GET_SCHEDULE_BOOKINGS, handleGetBookings),

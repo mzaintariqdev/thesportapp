@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import DashboardWeeklyCalender from "../components/dashboardWeeklyCalender/dashboardWeeklyCalender";
+
 import Analytics from "./components/Analytics";
 import StatsHeader from "./components/StatsHeader";
+import DashboardWeeklyCalender from "../components/DashboardWeeklyCalender";
 
 function DashBoard() {
   return (

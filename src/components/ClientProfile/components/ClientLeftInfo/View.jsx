@@ -1,14 +1,13 @@
 import React from "react";
-// import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { UserOutlined } from "@ant-design/icons";
+import { Input } from "antd";
+import { useHistory } from "react-router-dom";
 
 import { ReactComponent as BackArrowIcon } from "../../../../assets/icons/back-arrow.svg";
 import { ReactComponent as EditIcon } from "../../../../assets/icons/edit.svg";
 import AntAvatar from "../../../components/ant/Avatar";
 import AntDivider from "../../../components/ant/Divider";
-import { Input } from "antd";
-import { useHistory } from "react-router-dom";
 
 function ClientLeftInfo() {
   const history = useHistory();

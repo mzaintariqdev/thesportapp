@@ -1,12 +1,12 @@
-const homeUrl = "/";
-const loginUrl = "/login";
+const homeUrl = '/';
+const loginUrl = '/login';
 
 const clientUrls = {
-  clients: "/clients",
-  clientProfile: "/client-profile",
+  clients: '/clients',
+  clientProfile: '/client-profile',
 };
 
-const scheduleUrl = "/schedule";
+const scheduleUrl = '/schedule';
 
 export const routes = {
   homeUrl,

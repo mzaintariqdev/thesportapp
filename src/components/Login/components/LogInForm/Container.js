@@ -1,11 +1,11 @@
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import { login } from "../../../../redux/actions/auth";
+import { login } from '../../../../redux/actions/auth';
 import {
   selectIsAuthenticated,
   selectIsLoading,
-} from "../../../../redux/selectors/auth";
+} from '../../../../redux/selectors/auth';
 
 const mapStateToProps = (state) => ({
   isLoading: selectIsLoading(state),

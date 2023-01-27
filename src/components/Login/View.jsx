@@ -1,9 +1,11 @@
-import React from "react";
-import styled from "styled-components";
-import VenueLogo from "../../assets/img/Rectangle.svg";
-import BannerImage from "../../assets/img/image 5.svg";
-import LogInForm from "./components/LogInForm";
-import "./LogIn.scss";
+import React from 'react';
+
+import styled from 'styled-components';
+import VenueLogo from '../../assets/img/Rectangle.svg';
+import BannerImage from '../../assets/img/image 5.svg';
+import LogInForm from './components/LogInForm';
+
+import './LogIn.scss';
 
 function Login() {
   return (

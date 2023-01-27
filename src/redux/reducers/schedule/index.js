@@ -1,7 +1,7 @@
-import produce from "immer";
+import produce from 'immer';
 
-import { types } from "../../actions/schedule";
-import { scheduleDefaultState } from "../../utils/defaultStates";
+import { types } from '../../actions/schedule';
+import { scheduleDefaultState } from '../../utils/defaultStates';
 
 const defaultState = scheduleDefaultState.default;
 
@@ -20,6 +20,9 @@ const handleSetBookingsOnAddBooking = (state, payload) => {
     end: payload.data.end,
     date: payload.data.date,
     status: payload.data.status,
+    sport: 'Football',
+    amount: '620 AED',
+    payment: 'Collect at the venue',
   };
   state.bookings.push(newBooking);
 
@@ -43,11 +46,11 @@ const handleSetBookingDate = (state, payload) => {
 
 const handleSetAddBookingState = (state) => {
   state.addBookingFormDefault = {
-    client: "",
-    resource: "",
-    date: "",
-    time: "",
-    recurrence: "",
+    client: '',
+    resource: '',
+    date: '',
+    time: '',
+    recurrence: '',
   };
   return state;
 };
@@ -62,8 +65,38 @@ const handleSetEditModalOpen = (state, payload) => {
   return state;
 };
 
+const handleSetBookingsOnDelete = (state, payload) => {
+  const { id } = payload;
+  state.bookings = state.bookings.filter((booking) => booking.id !== id);
+  return state;
+};
+
+const handleSetBookingId = (state, payload) => {
+  const { id } = payload;
+  state.selectedBookingId = id;
+  return state;
+};
+
+const handleSetBookingById = (state, payload) => {
+  if (payload.data === undefined) {
+    const selectedData = state.bookings.filter(
+      (booking) => booking.id === state.selectedBookingId
+    );
+    state.selectedBooking = selectedData[0];
+  } else {
+    state.selectedBooking = payload.data;
+  }
+  return state;
+};
+
 export default produce((state = defaultState, action) => {
   switch (action.type) {
+    case types.SET_BOOKING_BY_ID:
+      return handleSetBookingById(state, action.payload);
+    case types.SET_BOOKING_ID:
+      return handleSetBookingId(state, action.payload);
+    case types.SET_BOOKINGS_ON_DELETE:
+      return handleSetBookingsOnDelete(state, action.payload);
     case types.SET_SCHEDULE_BOOKINGS:
       return handleSetBookings(state, action.payload);
     case types.SET_BOOKINGS_ON_ADD_BOOKING:

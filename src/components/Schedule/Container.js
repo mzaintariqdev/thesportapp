@@ -1,11 +1,11 @@
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import { getScheduleBookings } from "../../redux/actions/schedule";
+import { getScheduleBookings } from '../../redux/actions/schedule';
 import {
   selectBookings,
   selectIsScheduleLoading,
-} from "../../redux/selectors/schedule";
+} from '../../redux/selectors/schedule';
 
 const mapStateToProps = (state) => ({
   isScheduleLoading: selectIsScheduleLoading(state),

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import BookingList from "./bookingList";
-import WeeklyCalender from "./weeklyCalender";
+import BookingList from "./components/BookingList";
+import WeeklyCalender from "./components/WeeklyCalendar";
 
 function DashboardWeeklyCalender() {
   return (

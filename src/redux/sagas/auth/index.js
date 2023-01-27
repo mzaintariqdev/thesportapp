@@ -1,7 +1,7 @@
-import { all, call, put, takeLatest } from "redux-saga/effects";
+import { all, call, put, takeLatest } from 'redux-saga/effects';
 
-import jwt_decode from "jwt-decode";
-import { notification } from "antd";
+import jwt_decode from 'jwt-decode';
+import { notification } from 'antd';
 
 import {
   loginSuccess,
@@ -9,14 +9,14 @@ import {
   setIsLoading,
   setAuthenticationChecked,
   resetAuth,
-} from "../../actions/auth";
+} from '../../actions/auth';
 
-import history from "../../../history";
-import { routes } from "../../../routes/Routes";
-import { loginApiService } from "../../../services/authServices";
+import history from '../../../history';
+import { routes } from '../../../routes/Routes';
+import { loginApiService } from '../../../services/authServices';
 
 function* checkIsUserAuthenticated() {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem('token');
 
   if (token) {
     const user = jwt_decode(token);
@@ -34,12 +34,12 @@ function* handleResetPassword(action) {
 
   if (error) {
     notification.error({
-      message: "Login error",
+      message: 'Login error',
       description: error,
     });
   } else {
     notification.error({
-      message: "success",
+      message: 'success',
       description: data.message,
     });
   }
@@ -54,19 +54,19 @@ function* handleLogin(action) {
 
   if (error) {
     notification.error({
-      message: "Login error",
+      message: 'Login error',
       description: error,
     });
   } else {
     const { token } = data;
-    window.localStorage.setItem("token", token);
+    window.localStorage.setItem('token', token);
     yield call(checkIsUserAuthenticated);
     history.push(routes.homeUrl);
   }
 }
 
 function* logout() {
-  localStorage.removeItem("token");
+  localStorage.removeItem('token');
   yield put(resetAuth());
   window.location.reload();
 }

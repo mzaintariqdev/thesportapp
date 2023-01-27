@@ -1,26 +1,27 @@
-import styled from "styled-components";
-import { useState } from "react";
-import { Select } from "antd";
-import { ResponsiveContainer, Label } from "recharts";
-import { PieChart, Pie, Cell } from "recharts";
+import styled from 'styled-components';
+import { useState } from 'react';
+import { Select } from 'antd';
+import { ResponsiveContainer, Label } from 'recharts';
+import { PieChart, Pie, Cell } from 'recharts';
 
-import { ReactComponent as DropDown } from "../../../../../../assets/icons/dropdown-arrow.svg";
+import { ReactComponent as DropDown } from '../../../../../../assets/icons/dropdown-arrow.svg';
 
 const { Option } = Select;
-const timeVariation = ["Monthly", "Weekly", "Daily"];
+const timeVariation = ['Monthly', 'Weekly', 'Daily'];
 
 function PieChartComp() {
   const dataCircle = [
-    { name: "Group A", value: 600 },
-    { name: "Group B", value: 100 },
-    { name: "Group C", value: 300 },
+    { name: 'Group A', value: 600 },
+    { name: 'Group B', value: 100 },
+    { name: 'Group C', value: 300 },
   ];
-  const COLORS = ["#2ED47A", "#F7685B", "#FFB946"];
+  const COLORS = ['#2ED47A', '#F7685B', '#FFB946'];
 
-  const [variationPie, setPieVariation] = useState("Monthly");
+  const [variationPie, setPieVariation] = useState('Monthly');
 
   const handlePieChartChange = (value) => {
     setPieVariation(value);
+    console.log(variationPie);
   };
 
   return (
@@ -46,7 +47,7 @@ function PieChartComp() {
       </TasksWrapper>
       <Hr />
       <SubPieWrapper>
-        <div style={{ width: "50%", height: 224 }}>
+        <div style={{ width: '50%', height: 224 }}>
           <ResponsiveContainer>
             <PieChart>
               <Pie
@@ -90,7 +91,7 @@ function PieChartComp() {
 const AntSelect = styled(Select)`
   .ant-select-selection-item {
     margin: 0;
-    font-family: "Poppins";
+    font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
@@ -108,7 +109,7 @@ const Ticks = styled.div`
 `;
 const TickTag = styled.p`
   margin: 0;
-  font-family: "Poppins";
+  font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;
   font-size: 10px;
@@ -136,13 +137,13 @@ const SubPieWrapper = styled.div`
   justify-content: center;
 `;
 const StyledLabel = {
-  fontFamily: "Poppins",
-  fontStyle: "normal",
-  fontWeight: "500",
-  fontSize: "56px",
-  lineHeight: "84px",
-  textAlign: "center",
-  fill: "#2ed47a",
+  fontFamily: 'Poppins',
+  fontStyle: 'normal',
+  fontWeight: '500',
+  fontSize: '56px',
+  lineHeight: '84px',
+  textAlign: 'center',
+  fill: '#2ed47a',
 };
 const ShowWrapper = styled.div`
   display: flex;
@@ -151,7 +152,7 @@ const ShowWrapper = styled.div`
 `;
 const ShowHeading = styled.p`
   margin: 0;
-  font-family: "Poppins";
+  font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -170,7 +171,7 @@ const TasksWrapper = styled.div`
 `;
 const Deals = styled.p`
   margin: 0;
-  font-family: "Poppins";
+  font-family: 'Poppins';
   font-style: normal;
   font-weight: 500;
   font-size: 15px;

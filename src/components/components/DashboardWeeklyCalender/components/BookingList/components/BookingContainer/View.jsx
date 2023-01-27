@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import SampleImage from "../../../assets/icons/sample-image.svg";
+import SampleImage from "../../../../../../../assets/icons/sample-image.svg";
+import BookingStatus from "../../../../../BookingStatus/View";
 
 function BookingContainer({ status = "completed" }) {
   return (
@@ -18,9 +19,7 @@ function BookingContainer({ status = "completed" }) {
           <ClientImage src={SampleImage} alt="client" />
           <Name>Rebecca Moore</Name>
         </ImageWrap>
-        <Status status={status}>
-          {status === "unpaid" ? "unpaid" : "Completed"}
-        </Status>
+        <BookingStatus status={status} />
       </StatusWrap>
     </Wrapper>
   );
@@ -41,24 +40,7 @@ const Name = styled.p`
   letter-spacing: 0.01em;
   color: #707683;
 `;
-const Status = styled.div`
-  width: 84px;
-  height: 22px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 11px;
-  line-height: 16px;
-  text-align: center;
-  letter-spacing: 0.02em;
-  color: #ffffff;
-  background: ${(p) => (p.status === "unpaid" ? "#F7685B" : "#2ed47a")};
-  border-radius: 4px;
-`;
+
 const StatusWrap = styled.div`
   width: 100%;
   display: flex;

@@ -1,0 +1,25 @@
+.status-container {
+  width: 84px;
+  height: 22px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.unpaid {
+  background: #f7685b;
+}
+
+.others {
+  background: #2ed47a;
+}

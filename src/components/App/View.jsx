@@ -1,9 +1,9 @@
-import { Provider } from "react-redux";
-import { ThemeProvider } from "styled-components";
+import { Provider } from 'react-redux';
+import { ThemeProvider } from 'styled-components';
 
-import store from "../../redux/store";
-import theme from "../../Theme";
-import Layout from "../Layout";
+import store from '../../redux/store';
+import theme from '../../Theme';
+import Layout from '../Layout';
 
 function App() {
   return (

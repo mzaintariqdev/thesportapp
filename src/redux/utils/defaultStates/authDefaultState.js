@@ -1,9 +1,9 @@
 export const authDefaultState = {
   user: {
-    userType: "",
-    userId: "",
-    userName: "",
-    email: "",
+    userType: '',
+    userId: '',
+    userName: '',
+    email: '',
   },
   isAuthenticated: false,
   isAuthenticationChecked: false,

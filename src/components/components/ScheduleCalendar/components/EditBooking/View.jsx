@@ -1,24 +1,46 @@
-import React, { useEffect, useState } from "react";
-import "./EditBooking.scss";
+import React, { useEffect, useState } from 'react';
+import './EditBooking.scss';
 
 import {
   Button,
   DatePicker,
+  Dropdown,
   Form,
   Input,
+  Menu,
   Modal,
+  Popover,
   Select,
   Spin,
   TimePicker,
-} from "antd";
-import styled from "styled-components";
-import { RecurrenceOptions } from "../../constants";
-import moment from "moment";
+} from 'antd';
+import styled from 'styled-components';
+import { RecurrenceOptions } from '../../constants';
+import moment from 'moment';
+import BookingStatus from '../../../BookingStatus/View';
+import BookingDetails from './components/BookingDetails/View';
+import {
+  EllipsisOutlined,
+  MoreOutlined,
+  SettingOutlined,
+} from '@ant-design/icons';
 
 const EditBooking = (props) => {
   const [form] = Form.useForm();
-  const { actions, isModalLoading, isModalOpen, defaultValue } = props;
+  const {
+    actions,
+    isModalLoading,
+    isModalOpen,
+    defaultValue,
+    bookingId,
+    bookingData,
+  } = props;
+  console.log('booking id', bookingData);
+  useEffect(() => {
+    actions.getBookingById({ id: bookingId });
+  }, [bookingId]);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => form.resetFields(), [defaultValue]);
   const [timeDisabled, setTimeDisabled] = useState(true);
 
@@ -39,7 +61,7 @@ const EditBooking = (props) => {
       start: moment(startTime).toDate(),
       end: moment(endTime).toDate(),
       date: moment(data.date).toDate(),
-      status: "unpaid",
+      status: 'unpaid',
     };
 
     actions.addBooking({
@@ -50,10 +72,16 @@ const EditBooking = (props) => {
   const onClose = () => {
     form.resetFields();
 
-    actions.setAddBookingState();
+    actions.setBookingById({ data: {} });
     actions.setIsEditModalOpen({ open: false });
   };
-  const date = Form.useWatch("date", form);
+
+  const onDelete = () => {
+    actions.deleteBookingById({ id: bookingId });
+    actions.setBookingById({ data: {} });
+    actions.setIsEditModalOpen({ open: false });
+  };
+  const date = Form.useWatch('date', form);
 
   useEffect(() => {
     if (date) {
@@ -76,11 +104,25 @@ const EditBooking = (props) => {
       const startTime = value[0].valueOf();
       const endTime = value[1].valueOf();
       if (startTime >= endTime) {
-        return Promise.reject("End time must be later than start time!");
+        return Promise.reject('End time must be later than start time!');
       }
     }
     return Promise.resolve();
   };
+
+  const handleClick = ({ key }) => {
+    console.log(key);
+    //you can perform setState here
+    if (key === 'Delete') {
+      onDelete();
+    }
+  };
+
+  const menu = (
+    <Menu onClick={handleClick}>
+      <Menu.Item key="Delete">Delete</Menu.Item>
+    </Menu>
+  );
 
   return (
     <Modal
@@ -90,115 +132,23 @@ const EditBooking = (props) => {
       onCancel={onClose}
     >
       <Spin spinning={isModalLoading}>
-        <p className="add-booking-form__title">Edit Booking</p>
-        <Divider />
-        <Form
-          form={form}
-          onFinish={onFinish}
-          autoComplete="off"
-          initialValues={initial}
-          validateTrigger="onSubmit"
-        >
-          <div className="add-booking-form__container">
-            <Form.Item
-              className="add-booking-form__container-input-fields"
-              label="Client"
-              name="client"
-              rules={[
-                {
-                  required: true,
-                  message: "Please input your Client name",
-                },
-              ]}
-            >
-              <Input />
-            </Form.Item>
-            <Form.Item
-              className="add-booking-form__container-input-fields"
-              label="Resource"
-              name="resource"
-              rules={[
-                {
-                  required: true,
-                  message: "Please input your Resource",
-                },
-              ]}
-            >
-              <Input />
-            </Form.Item>
+        <div className="edit-booking-form__header">
+          <p className="edit-booking-form__header-title">Booking Information</p>
+          <Dropdown overlay={menu} trigger={['click']}>
+            <a onClick={(e) => e.preventDefault()}>
+              <MoreOutlined />
+            </a>
+          </Dropdown>
+        </div>
 
-            <Form.Item
-              className="add-booking-form__container-input-fields"
-              label="Date"
-              name="date"
-              rules={[
-                {
-                  required: true,
-                  message: "Please Select Booking Date",
-                },
-              ]}
-            >
-              <DatePicker format={"ll"} disabledDate={disabledDate} />
-            </Form.Item>
-            <Form.Item
-              className="add-booking-form__container-input-fields"
-              label="Time"
-              name="time"
-              rules={[
-                { required: true, message: "Please select a time range!" },
-                { validator: validateStartEndTime },
-              ]}
-            >
-              <TimePicker.RangePicker
-                format="HH:mm"
-                minuteStep={15}
-                disabled={timeDisabled}
-              />
-            </Form.Item>
-            <Form.Item
-              className="add-booking-form__container-input-fields"
-              label="Recurrence"
-              name="recurrence"
-              rules={[
-                {
-                  required: true,
-                  message: "Please Select Recurrence",
-                },
-              ]}
-            >
-              <Select options={RecurrenceOptions} />
-            </Form.Item>
-          </div>
+        <div onClick={onDelete} className="edit-booking-form__status">
+          <BookingStatus status="unpaid" />
+        </div>
 
-          <div className="add-booking-form__container-actions">
-            <Form.Item>
-              <Button
-                className="add-booking-form__container-actions__checkout-btn"
-                type="primary"
-              >
-                Express Checkout
-              </Button>
-            </Form.Item>
-            <Form.Item>
-              <Button
-                type="primary"
-                className="add-booking-form__container-actions__add-booking-btn"
-                htmlType="submit"
-              >
-                Add Booking
-              </Button>
-            </Form.Item>
-          </div>
-        </Form>
+        <BookingDetails onCancel={onClose} bookingData={bookingData} />
       </Spin>
     </Modal>
   );
 };
-
-const Divider = styled.p`
-  margin-top: 22px;
-  margin-bottom: 8px;
-  border: 1px solid ${(p) => p.theme.colors.assetGray};
-`;
 
 export default EditBooking;

@@ -1,26 +1,20 @@
-import React, { useState } from "react";
-import { Calendar } from "react-big-calendar";
+import React, { useState } from 'react';
+import { Calendar } from 'react-big-calendar';
 
-import CustomEventComponent from "./components/CustomEventComponent";
-import { eventStyleGetter, localizer } from "./helper";
-import CustomToolbar from "./components/CustomToolBar";
+import CustomEventComponent from './components/CustomEventComponent';
+import { eventStyleGetter, localizer } from './helper';
+import CustomToolbar from './components/CustomToolBar';
 
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import AddBookings from "./components/AddBookings";
-import EditBooking from "./components/EditBooking";
+import AddBookings from './components/AddBookings';
+import EditBooking from './components/EditBooking';
 
 const ScheduleCalendar = (props) => {
   const { bookings, actions } = props;
 
   const openEventClick = (event) => {
-    console.log(event);
-    actions.setBookingId(event);
-    if (event.id) {
-      // ShowEventApi(event.id);
-    }
-
-    return;
+    actions.setBookingId({ id: event.id });
   };
 
   const closeEventClick = () => {
@@ -46,7 +40,7 @@ const ScheduleCalendar = (props) => {
         //   timeGutterFormat: "HH:mm",
         // }}
         formats={{
-          timeGutterFormat: "HH:mm",
+          timeGutterFormat: 'HH:mm',
         }}
         eventPropGetter={eventStyleGetter}
         // events={events}
@@ -64,7 +58,7 @@ const ScheduleCalendar = (props) => {
         defaultDate={new Date()}
         min={startOfDay}
         max={endOfDay}
-        style={{ height: 500, margin: 50, fontFamily: "Patrick Hand" }}
+        style={{ height: 500, margin: 50, fontFamily: 'Patrick Hand' }}
         onSelectEvent={openEventClick}
       />
     </CalendarWrapper>
@@ -90,7 +84,7 @@ const StyledCalendar = styled(Calendar)`
   }
 
   .rbc-header {
-    font-family: "Poppins";
+    font-family: 'Poppins';
     font-style: normal;
     font-weight: 500;
     font-size: 15px;
@@ -100,7 +94,7 @@ const StyledCalendar = styled(Calendar)`
   }
 
   .rbc-date-cell {
-    font-family: "Poppins";
+    font-family: 'Poppins';
     font-style: normal;
     font-weight: 500;
     font-size: 15px;

@@ -1,8 +1,9 @@
-import { Input, Select } from "antd";
-
 import React from "react";
+import { Input, Select } from "antd";
 import styled from "styled-components";
+
 import { ReactComponent as DownArrow } from "../../../../../../../../assets/icons/arrow-down.svg";
+
 function ProfileAdditionalInfo() {
   const { Option } = Select;
   return (

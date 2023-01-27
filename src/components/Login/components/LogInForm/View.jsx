@@ -1,11 +1,9 @@
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef } from 'react';
+import styled from 'styled-components';
+import { Button, Form, Input, Spin } from 'antd';
+import { Redirect } from 'react-router';
 
-import styled from "styled-components";
-
-import "./LogInForm.scss";
-import { Button, Form, Input, Spin } from "antd";
-
-import { Redirect } from "react-router";
+import './LogInForm.scss';
 
 function LogInForm(props) {
   const { isLoading, actions, isAuthenticated } = props;
@@ -38,7 +36,7 @@ function LogInForm(props) {
             rules={[
               {
                 required: true,
-                message: "Please input your username!",
+                message: 'Please input your username!',
               },
             ]}
           >
@@ -52,7 +50,7 @@ function LogInForm(props) {
             rules={[
               {
                 required: true,
-                message: "Please input your password!",
+                message: 'Please input your password!',
               },
             ]}
           >

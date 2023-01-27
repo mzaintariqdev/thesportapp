@@ -1,5 +1,5 @@
-import mockAuthUsers from "../utils/mocks/mockAuthUsers";
-import { sleep } from "./utils/helpers";
+import mockAuthUsers from '../utils/mocks/mockAuthUsers';
+import { sleep } from './utils/helpers';
 
 export const loginApiService = async (data) => {
   const { username, password } = data;
@@ -11,5 +11,5 @@ export const loginApiService = async (data) => {
   if (user) {
     return { data: user };
   }
-  return { error: "Wrong username or password." };
+  return { error: 'Wrong username or password.' };
 };

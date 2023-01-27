@@ -1,7 +1,7 @@
-import produce from "immer";
+import produce from 'immer';
 
-import { types } from "../../actions/auth";
-import { authDefaultState } from "../../utils/defaultStates";
+import { types } from '../../actions/auth';
+import { authDefaultState } from '../../utils/defaultStates';
 
 const defaultState = authDefaultState.default;
 

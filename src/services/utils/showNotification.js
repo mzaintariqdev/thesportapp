@@ -1,4 +1,4 @@
-import { notification } from "antd";
+import { notification } from 'antd';
 
 const showNotifications = (description, error = false, apiStatus = 200) => {
   if (error) {
@@ -8,7 +8,7 @@ const showNotifications = (description, error = false, apiStatus = 200) => {
     });
   } else {
     notification.success({
-      message: "Success",
+      message: 'Success',
       description,
     });
   }

@@ -1,15 +1,15 @@
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Layout } from "antd";
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Layout } from 'antd';
 
-import Clients from "../pages/clients";
-import Sidebar from "../components/Sidebar/Sidebar";
-import Header from "../components/header/header";
-import ClientProfile from "../pages/client-profile/clientProfile";
-import styled from "styled-components";
-import { routes } from "./Routes";
-import DashBoard from "../pages/dashboard";
-import Schedule from "../pages/schedule";
+import Clients from '../pages/clients';
+import Sidebar from '../components/Sidebar/Sidebar';
+import Header from '../components/header/header';
+import ClientProfile from '../pages/client-profile/clientProfile';
+import styled from 'styled-components';
+import { routes } from './Routes';
+import DashBoard from '../pages/dashboard';
+import Schedule from '../pages/schedule';
 
 const { Content } = Layout;
 

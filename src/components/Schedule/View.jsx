@@ -1,13 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
+import { Spin } from 'antd';
 
-import ScheduleCalendar from "../components/ScheduleCalendar";
-import { Spin } from "antd";
+import ScheduleCalendar from '../components/ScheduleCalendar';
 
 function Schedule(props) {
   const { isScheduleLoading, actions } = props;
-  console.log("is loading", isScheduleLoading);
+
   useEffect(() => {
     actions.getScheduleBookings();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

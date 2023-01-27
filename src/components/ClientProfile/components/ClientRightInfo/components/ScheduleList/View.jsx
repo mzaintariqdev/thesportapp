@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+
 import Schedule from "./components/Schedule";
 
 function ScheduleList() {

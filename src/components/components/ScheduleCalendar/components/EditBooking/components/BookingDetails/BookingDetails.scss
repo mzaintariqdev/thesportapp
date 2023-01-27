@@ -1,0 +1,75 @@
+.booking-details {
+  padding: 0 30px;
+  display: flex;
+  flex-direction: column;
+
+  .booking-details-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 11px;
+    &__label {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 11px;
+      line-height: 16px;
+      letter-spacing: 0.01em;
+      color: #818e9b;
+      margin: 0;
+    }
+
+    &__value {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 20px;
+      letter-spacing: 0.01em;
+      color: #323c47;
+      margin: 0;
+    }
+  }
+
+  .booking-details-actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 4rem;
+    &__checkout {
+      width: 160px;
+      height: 42px;
+      background: #109cf1;
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 13px;
+      line-height: 20px;
+      text-align: center;
+      letter-spacing: 0.01em;
+      color: #ffffff;
+      box-shadow: 0px 4px 10px rgba(16, 156, 241, 0.24);
+      border-radius: 4px;
+    }
+
+    &__cancel {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 13px;
+      line-height: 20px;
+      text-align: center;
+      letter-spacing: 0.01em;
+      color: #f7685b;
+      border: 1px solid #f7685b;
+      border-radius: 4px;
+      width: 160px;
+      height: 42px;
+      background: none;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

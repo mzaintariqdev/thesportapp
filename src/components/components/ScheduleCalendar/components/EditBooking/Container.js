@@ -1,27 +1,33 @@
-import { bindActionCreators } from "redux";
+import { bindActionCreators } from 'redux';
 import {
-  addBooking,
-  setAddBookingState,
+  deleteBookingById,
+  getBookingById,
+  setBookingById,
   setIsEditModalOpen,
-} from "../../../../../redux/actions/schedule";
-import { connect } from "react-redux";
+} from '../../../../../redux/actions/schedule';
+import { connect } from 'react-redux';
 import {
   selectAddBookingDefaultValue,
   selectIsModalLoading,
   selectIsEditModalOpen,
-} from "../../../../../redux/selectors/schedule";
+  selectBookingId,
+  selectBookingData,
+} from '../../../../../redux/selectors/schedule';
 
 const mapStateToProps = (state) => ({
   defaultValue: selectAddBookingDefaultValue(state),
   isModalOpen: selectIsEditModalOpen(state),
   isModalLoading: selectIsModalLoading(state),
+  bookingId: selectBookingId(state),
+  bookingData: selectBookingData(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators(
     {
-      addBooking,
-      setAddBookingState,
+      deleteBookingById,
+      getBookingById,
+      setBookingById,
       setIsEditModalOpen,
     },
     dispatch
