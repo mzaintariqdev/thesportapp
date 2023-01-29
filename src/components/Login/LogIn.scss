@@ -1,0 +1,23 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: calc(100% - 80px);
+}
+.banner {
+  background-image: url('../../assets/img/image 5.svg');
+}
+.venueLogo {
+  background: none;
+  margin: 58px 0 45px 35px;
+}
+.LogInForm {
+  width: calc(100% - 80px);
+  margin-top: 32px;
+  min-height: 686px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
