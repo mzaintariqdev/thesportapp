@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import "./AddBookings.scss";
+import React, { useEffect, useState } from 'react';
+import './AddBookings.scss';
 
 import {
   Button,
@@ -10,10 +10,10 @@ import {
   Select,
   Spin,
   TimePicker,
-} from "antd";
-import styled from "styled-components";
-import { RecurrenceOptions } from "../../constants";
-import moment from "moment";
+} from 'antd';
+import styled from 'styled-components';
+import { RecurrenceOptions } from '../../constants';
+import moment from 'moment';
 
 const AddBookings = (props) => {
   const [form] = Form.useForm();
@@ -39,7 +39,7 @@ const AddBookings = (props) => {
       start: moment(startTime).toDate(),
       end: moment(endTime).toDate(),
       date: moment(data.date).toDate(),
-      status: "unpaid",
+      status: 'unpaid',
     };
 
     actions.addBooking({
@@ -53,7 +53,7 @@ const AddBookings = (props) => {
     actions.setAddBookingState();
     actions.setIsAddModalOpen({ open: false });
   };
-  const date = Form.useWatch("date", form);
+  const date = Form.useWatch('date', form);
 
   useEffect(() => {
     if (date) {
@@ -65,6 +65,7 @@ const AddBookings = (props) => {
 
   const initial = {
     date: moment(defaultValue.date),
+    recurrence: RecurrenceOptions[0],
   };
 
   const disabledDate = (current) => {
@@ -76,7 +77,7 @@ const AddBookings = (props) => {
       const startTime = value[0].valueOf();
       const endTime = value[1].valueOf();
       if (startTime >= endTime) {
-        return Promise.reject("End time must be later than start time!");
+        return Promise.reject('End time must be later than start time!');
       }
     }
     return Promise.resolve();
@@ -107,7 +108,7 @@ const AddBookings = (props) => {
               rules={[
                 {
                   required: true,
-                  message: "Please input your Client name",
+                  message: 'Please input your Client name',
                 },
               ]}
             >
@@ -120,7 +121,7 @@ const AddBookings = (props) => {
               rules={[
                 {
                   required: true,
-                  message: "Please input your Resource",
+                  message: 'Please input your Resource',
                 },
               ]}
             >
@@ -134,18 +135,18 @@ const AddBookings = (props) => {
               rules={[
                 {
                   required: true,
-                  message: "Please Select Booking Date",
+                  message: 'Please Select Booking Date',
                 },
               ]}
             >
-              <DatePicker format={"ll"} disabledDate={disabledDate} />
+              <DatePicker format={'ll'} disabledDate={disabledDate} />
             </Form.Item>
             <Form.Item
               className="add-booking-form__container-input-fields"
               label="Time"
               name="time"
               rules={[
-                { required: true, message: "Please select a time range!" },
+                { required: true, message: 'Please select a time range!' },
                 { validator: validateStartEndTime },
               ]}
             >
@@ -162,7 +163,7 @@ const AddBookings = (props) => {
               rules={[
                 {
                   required: true,
-                  message: "Please Select Recurrence",
+                  message: 'Please Select Recurrence',
                 },
               ]}
             >
