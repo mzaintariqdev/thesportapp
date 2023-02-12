@@ -1,0 +1,94 @@
+.line-chart {
+  display: flex;
+  flex-direction: column;
+
+  .line-chart-wrap {
+    width: 445px;
+    height: 344px;
+    background: white;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+
+    &__header {
+      display: flex;
+      width: 100%;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 16px 16px 24px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid #ebeff2;
+
+      &-task-heading {
+        margin: 0;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 22px;
+        letter-spacing: 0.01em;
+        color: #192a3e;
+      }
+
+      &-select-wrap {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        &__heading {
+          margin: 0;
+          font-family: 'Poppins';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 18px;
+          letter-spacing: 0.01em;
+          color: #6a707e;
+        }
+
+        .ant-select-selection-item {
+          margin: 0;
+          font-family: 'Poppins';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 12px;
+          letter-spacing: 0.01em;
+          color: #109cf1;
+        }
+      }
+    }
+
+    &__body {
+      background: white;
+
+      &-closed-deal {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding-left: 24px;
+        padding-bottom: 24px;
+        .tool-tip {
+          margin: 0;
+          width: 8px;
+          height: 8px;
+          color: #109cf1;
+          background: #109cf1;
+          border-radius: 8px;
+        }
+
+        &__heading {
+          margin: 0;
+          margin-left: 8px;
+          font-family: 'Poppins';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 10px;
+          line-height: 15px;
+          letter-spacing: 0.01em;
+          color: #192a3e;
+        }
+      }
+    }
+  }
+}

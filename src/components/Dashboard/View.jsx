@@ -1,33 +1,29 @@
-import styled from "styled-components";
+import Analytics from './components/Analytics';
+import Wallet from './components/Wallet';
+import DashboardWeeklyCalender from './components/DashboardWeeklyCalender';
+import { useEffect } from 'react';
+import { DATA_VARIATION } from '../../utils/mocks/mockDashboard';
 
-import Analytics from "./components/Analytics";
-import StatsHeader from "./components/StatsHeader";
-import DashboardWeeklyCalender from "../components/DashboardWeeklyCalender";
+import './Dashboard.scss';
 
-function DashBoard() {
+function DashBoard(props) {
+  const { actions } = props;
+
+  useEffect(() => {
+    actions.getTaskAnalytics({ status: DATA_VARIATION.DAILY });
+    actions.getLineChartAnalytics({ status: DATA_VARIATION.DAILY });
+    actions.getWalletData();
+  }, []);
+
   return (
-    <Wrapper>
-      <StatsHeader />
-      <AnalyticsWrapper>
+    <div className="dashboard-section">
+      <Wallet />
+      <div className="dashboard-section__sub-wrap">
         <DashboardWeeklyCalender />
         <Analytics />
-      </AnalyticsWrapper>
-    </Wrapper>
+      </div>
+    </div>
   );
 }
 
-const AnalyticsWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
-const Wrapper = styled.div`
-  margin-top: 49px;
-  margin-left: 47px;
-  padding-right: 50px;
-  width: 100%;
-  min-width: 1101px;
-  max-width: 1101px;
-  display: flex;
-  flex-direction: column;
-`;
 export default DashBoard;
