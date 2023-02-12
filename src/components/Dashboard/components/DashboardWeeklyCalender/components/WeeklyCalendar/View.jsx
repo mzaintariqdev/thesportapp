@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 
 import { DayAbbreviations, WeekDays } from '../../constants';
@@ -6,9 +6,8 @@ import { MonthsName } from '../../constants';
 
 import './WeeklyCalendar.scss';
 
-function WeeklyCalender() {
+function WeeklyCalender({ selectedDate, setSelectedDate }) {
   const currentDate = new Date();
-  const [selectedDate, setSelectedDate] = useState(new Date());
   const weeklyDates = Array.from(Array(7).keys()).map((idx) => {
     const d = new Date();
     d.setDate(d.getDate() - d.getDay() + idx);

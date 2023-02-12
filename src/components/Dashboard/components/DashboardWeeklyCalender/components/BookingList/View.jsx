@@ -1,18 +1,23 @@
 import React from 'react';
-
+import { Spin } from 'antd';
+import { LoadingOutlined } from '@ant-design/icons';
 import BookingContainer from './components/BookingContainer';
 
 import './BookingList.scss';
 
-function BookingList() {
+const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
+
+function BookingList({ bookingList, getMoreBookings, isLoading }) {
   return (
     <div className="booking-list">
       <div className="booking-list-wrapper">
-        <BookingContainer status={'completed'} />
-        <BookingContainer status={'unpaid'} />
-        <BookingContainer status={'completed'} />
+        {bookingList?.map((booking, index) => (
+          <BookingContainer key={index} booking={booking} />
+        ))}
       </div>
-      <p className="booking-list__show-more">Show more</p>
+      <p className="booking-list__show-more" onClick={getMoreBookings}>
+        {isLoading ? <Spin indicator={antIcon} /> : 'Show more'}
+      </p>
     </div>
   );
 }

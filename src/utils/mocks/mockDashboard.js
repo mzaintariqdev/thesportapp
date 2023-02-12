@@ -239,3 +239,81 @@ export const mockWallet = {
   sales: '$89k',
   salesPercentage: -3,
 };
+
+export const mockBookingListByDate = [
+  {
+    id: 0,
+    title: 'Send benefit review by Sunday',
+    status: 'completed',
+    price: '300 USD',
+    time: '08:00 AM',
+    clientName: 'Rebecca Moore',
+    clientImageLink: '',
+  },
+  {
+    id: 1,
+    title: 'Send benefit review by Monday',
+    status: 'unpaid',
+    price: '450 USD',
+    time: '8:00 PM',
+    clientName: 'James',
+    clientImageLink: '',
+  },
+  {
+    id: 2,
+    title: 'Send payment by Saturday',
+    status: 'completed',
+    price: '800 USD',
+    time: '10:00 AM',
+    clientName: 'John Smith',
+    clientImageLink: '',
+  },
+];
+
+export const mockMoreBookingListByDate = [
+  {
+    id: 0,
+    title: 'Send benefit review by Sunday',
+    status: 'completed',
+    price: '300 USD',
+    time: '08:00 AM',
+    clientName: 'Rebecca Moore',
+    clientImageLink: '',
+  },
+  {
+    id: 1,
+    title: 'Send benefit review by Monday',
+    status: 'unpaid',
+    price: '450 USD',
+    time: '8:00 PM',
+    clientName: 'James',
+    clientImageLink: '',
+  },
+  {
+    id: 2,
+    title: 'Send payment by Saturday',
+    status: 'completed',
+    price: '800 USD',
+    time: '10:00 AM',
+    clientName: 'John Smith',
+    clientImageLink: '',
+  },
+  {
+    id: 3,
+    title: 'Send benefit review by Sunday',
+    status: 'completed',
+    price: '300 USD',
+    time: '08:00 AM',
+    clientName: 'Rebecca Moore',
+    clientImageLink: '',
+  },
+  {
+    id: 4,
+    title: 'Send benefit review by Monday',
+    status: 'unpaid',
+    price: '450 USD',
+    time: '8:00 PM',
+    clientName: 'James',
+    clientImageLink: '',
+  },
+];

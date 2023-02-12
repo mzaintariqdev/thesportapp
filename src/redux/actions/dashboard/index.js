@@ -8,7 +8,31 @@ export const types = {
   GET_LINE_CHART_ANALYTICS: 'GET_LINE_CHART_ANALYTICS',
   SET_LINE_CHART_ANALYTICS: 'SET_LINE_CHART_ANALYTICS',
   SET_IS_LINE_CHART_ANALYTICS_LOADING: 'SET_IS_LINE_CHART_ANALYTICS_LOADING',
+  SET_BOOKING_LIST_BY_DATE: 'SET_BOOKING_LIST_BY_DATE',
+  GET_BOOKING_LIST_BY_DATE: 'GET_BOOKING_LIST_BY_DATE',
+  SET_BOOKING_LIST_LOADING: 'SET_BOOKING_LIST_LOADING',
+  GET_MORE_BOOKING_LIST_LOADING: 'GET_MORE_BOOKING_LIST_LOADING',
 };
+
+export const getMoreBookingListByDate = (payload) => ({
+  type: types.GET_MORE_BOOKING_LIST_LOADING,
+  payload,
+});
+
+export const setBookingListByDate = (payload) => ({
+  type: types.SET_BOOKING_LIST_BY_DATE,
+  payload,
+});
+
+export const getBookingListByDate = (payload) => ({
+  type: types.GET_BOOKING_LIST_BY_DATE,
+  payload,
+});
+
+export const setBookingListByDateLoading = (payload) => ({
+  type: types.SET_BOOKING_LIST_LOADING,
+  payload,
+});
 
 export const setWalletLoading = (payload) => ({
   type: types.SET_IS_WALLET_LOADING,

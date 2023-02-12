@@ -7,12 +7,16 @@ import {
   setLineChartAnalytics,
   setWalletLoading,
   setWalletData,
+  setBookingListByDateLoading,
+  setBookingListByDate,
 } from '../../actions/dashboard';
 
 import showNotifications from '../../../services/utils/showNotification';
 import { setIsTaskAnalyticsLoading } from '../../actions/dashboard';
 import {
+  getBookingListByDateApi,
   getLineChartAnalyticsApi,
+  getMoreBookingListByDateApi,
   getTaskAnalyticsApi,
   getWalletDataApi,
 } from '../../../services/dashboardServices';
@@ -60,8 +64,47 @@ function* handleGetWalletData() {
   yield put(setWalletLoading({ isLoading: false }));
 }
 
+function* handleGetBookingListByDate(action) {
+  const { date } = action.payload;
+
+  yield put(setBookingListByDateLoading({ isLoading: true }));
+
+  const { data, error } = yield call(getBookingListByDateApi, date);
+
+  if (error) {
+    showNotifications('error');
+  } else {
+    yield put(setBookingListByDate({ data }));
+  }
+  yield put(setBookingListByDateLoading({ isLoading: false }));
+}
+
+function* handleGetMoreBookingListByDate(action) {
+  const { date } = action.payload;
+
+  yield put(setBookingListByDateLoading({ isLoading: true }));
+
+  const { data, error } = yield call(getMoreBookingListByDateApi, date);
+
+  if (error) {
+    showNotifications('error');
+  } else {
+    yield put(setBookingListByDate({ data }));
+  }
+  yield put(setBookingListByDateLoading({ isLoading: false }));
+}
+
 export default function* dashboardSagas() {
+  yield all([
+    takeLatest(
+      types.GET_MORE_BOOKING_LIST_LOADING,
+      handleGetMoreBookingListByDate
+    ),
+  ]);
   yield all([takeLatest(types.GET_TASK_ANALYTICS, handleGetTaskAnalytics)]);
+  yield all([
+    takeLatest(types.GET_BOOKING_LIST_BY_DATE, handleGetBookingListByDate),
+  ]);
   yield all([takeLatest(types.GET_WALLET_DATA, handleGetWalletData)]);
   yield all([
     takeLatest(types.GET_LINE_CHART_ANALYTICS, handleGetLineChartAnalytics),

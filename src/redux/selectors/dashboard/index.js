@@ -7,6 +7,16 @@ export const selectWalletData = createSelector(
   (state) => state.wallet
 );
 
+export const selectIsBookingListByDateLoading = createSelector(
+  selectDashboard,
+  (state) => state.isBookingListByDateLoading
+);
+
+export const selectBookingListByDate = createSelector(
+  selectDashboard,
+  (state) => state.bookingListByDate
+);
+
 export const selectIsWalletLoading = createSelector(
   selectDashboard,
   (state) => state.isWalletLoading

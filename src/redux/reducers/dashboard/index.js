@@ -35,8 +35,22 @@ const handleSetIsWalletLoading = (state, payload) => {
   return state;
 };
 
+const handleSetIsBookingListLoading = (state, payload) => {
+  state.isBookingListByDateLoading = payload.isLoading;
+  return state;
+};
+
+const handleSetBookingListByDate = (state, payload) => {
+  state.bookingListByDate = payload.data;
+  return state;
+};
+
 export default produce((state = defaultState, action) => {
   switch (action.type) {
+    case types.SET_BOOKING_LIST_BY_DATE:
+      return handleSetBookingListByDate(state, action.payload);
+    case types.SET_BOOKING_LIST_LOADING:
+      return handleSetIsBookingListLoading(state, action.payload);
     case types.SET_IS_WALLET_LOADING:
       return handleSetIsWalletLoading(state, action.payload);
     case types.SET_WALLET_DATA:

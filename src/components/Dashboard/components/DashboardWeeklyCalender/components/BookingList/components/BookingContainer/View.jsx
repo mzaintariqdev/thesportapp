@@ -5,25 +5,23 @@ import BookingStatus from '../../../../../../../components/BookingStatus';
 
 import './BookingContainer.scss';
 
-function BookingContainer({ status = 'completed' }) {
+function BookingContainer({ booking }) {
   return (
     <div className="booking-container">
       <div className="booking-container__heading">
-        <p className="booking-container__heading-label">
-          Send benefit review by Sunday
-        </p>
-        <p className="booking-container__heading-tag">300 USD</p>
+        <p className="booking-container__heading-label">{booking?.title}</p>
+        <p className="booking-container__heading-tag">{booking?.price}</p>
       </div>
       <div className="booking-container__due-date">
         <p className="booking-container__due-date__label">Time</p>
-        <p className="booking-container__due-date__value">08:00 AM</p>
+        <p className="booking-container__due-date__value">{booking?.time}</p>
       </div>
       <div className="booking-container__status">
         <div className="booking-container__status-image-wrap">
           <img className="client-img" src={SampleImage} alt="client" />
-          <p className="client-name">Rebecca Moore</p>
+          <p className="client-name">{booking?.clientName}</p>
         </div>
-        <BookingStatus status={status} />
+        <BookingStatus status={booking?.status} />
       </div>
     </div>
   );

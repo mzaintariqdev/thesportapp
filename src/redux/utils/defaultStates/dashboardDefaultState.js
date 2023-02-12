@@ -4,6 +4,8 @@ export const dashboardDefaultState = {
   isTaskAnalyticsLoading: false,
   isLineChartAnalyticsLoading: false,
   isWalletLoading: false,
+  isBookingListByDateLoading: false,
+  bookingListByDate: [],
   wallet: {
     earning: '',
     earningPercentage: '',
