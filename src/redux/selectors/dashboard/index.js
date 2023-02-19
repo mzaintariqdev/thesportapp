@@ -12,6 +12,11 @@ export const selectIsBookingListByDateLoading = createSelector(
   (state) => state.isBookingListByDateLoading
 );
 
+export const selectIsMoreBookingListByDateLoading = createSelector(
+  selectDashboard,
+  (state) => state.isMoreBookingListByDateLoading
+);
+
 export const selectBookingListByDate = createSelector(
   selectDashboard,
   (state) => state.bookingListByDate

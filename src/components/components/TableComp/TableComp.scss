@@ -57,6 +57,13 @@
         font-size: 13px;
         letter-spacing: 0.01em;
         color: #707683;
+
+        &:hover,
+        :active,
+        :focus {
+          background: none;
+          box-shadow: none;
+        }
       }
     }
   }

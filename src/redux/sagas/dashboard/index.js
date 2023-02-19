@@ -9,6 +9,7 @@ import {
   setWalletData,
   setBookingListByDateLoading,
   setBookingListByDate,
+  setMoreBookingListByDateLoading,
 } from '../../actions/dashboard';
 
 import showNotifications from '../../../services/utils/showNotification';
@@ -82,7 +83,7 @@ function* handleGetBookingListByDate(action) {
 function* handleGetMoreBookingListByDate(action) {
   const { date } = action.payload;
 
-  yield put(setBookingListByDateLoading({ isLoading: true }));
+  yield put(setMoreBookingListByDateLoading({ isLoading: true }));
 
   const { data, error } = yield call(getMoreBookingListByDateApi, date);
 
@@ -91,7 +92,7 @@ function* handleGetMoreBookingListByDate(action) {
   } else {
     yield put(setBookingListByDate({ data }));
   }
-  yield put(setBookingListByDateLoading({ isLoading: false }));
+  yield put(setMoreBookingListByDateLoading({ isLoading: false }));
 }
 
 export default function* dashboardSagas() {

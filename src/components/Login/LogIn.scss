@@ -4,20 +4,61 @@
   align-items: center;
   width: calc(100% - 80px);
 }
-.banner {
-  background-image: url('../../assets/img/image 5.svg');
-}
-.venueLogo {
-  background: none;
-  margin: 58px 0 45px 35px;
-}
-.LogInForm {
-  width: calc(100% - 80px);
-  margin-top: 32px;
-  min-height: 686px;
-  background: #ffffff;
+
+.login-page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  min-width: 100vw;
+  min-height: 100vh;
+  width: calc(100% - 80px);
+  line-height: 35px;
+
+  .banner {
+    background-image: url('../../assets/img/image 5.svg');
+    width: calc(100% - 80px);
+    margin-top: 32px;
+    height: 167px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &-left {
+      margin-right: 90px;
+      line-height: 0;
+    }
+
+    &-right {
+      font-family: 'Poppins';
+      color: #ffffff;
+
+      &__client-name {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-weight: 600;
+        font-size: 32px;
+      }
+
+      &__client-address {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-weight: 600;
+        font-size: 24px;
+      }
+    }
+  }
+  .venueLogo {
+    background: none;
+    margin: 58px 0 45px 35px;
+  }
+  .LogInForm {
+    width: calc(100% - 80px);
+    margin-top: 32px;
+    min-height: 686px;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 }

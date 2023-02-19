@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useRef } from 'react';
-import styled from 'styled-components';
 import { Button, Form, Input, Spin } from 'antd';
 import { Redirect } from 'react-router';
 
@@ -27,7 +26,6 @@ function LogInForm(props) {
         validateTrigger="onSubmit"
       >
         <p className="login-form__title">Sign In</p>
-        <Divider />
         <div className="login-form__container">
           <Form.Item
             className="login-form__container-input-fields"
@@ -80,11 +78,5 @@ function LogInForm(props) {
     </Spin>
   );
 }
-
-const Divider = styled.p`
-  margin-top: 22px;
-  margin-bottom: 8px;
-  border: 1px solid ${(p) => p.theme.colors.assetGray};
-`;
 
 export default LogInForm;

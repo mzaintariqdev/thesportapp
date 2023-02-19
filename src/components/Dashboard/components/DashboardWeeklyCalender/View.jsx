@@ -8,7 +8,7 @@ import { Spin } from 'antd';
 import RenderIf from '../../../components/RenderIf';
 
 function DashboardWeeklyCalender(props) {
-  const { actions, isLoading, bookingList } = props;
+  const { actions, isLoading, isMoreLoading, bookingList } = props;
   const [selectedDate, setSelectedDate] = useState(new Date());
   console.log(selectedDate, selectedDate);
 
@@ -37,7 +37,7 @@ function DashboardWeeklyCalender(props) {
           <BookingList
             getMoreBookings={getMoreBookings}
             bookingList={bookingList}
-            isLoading={isLoading}
+            isLoading={isMoreLoading}
           />
         </RenderIf>
         <RenderIf condition={bookingList?.length === 0}>

@@ -1,23 +1,17 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
 
-import ClientRightInfo from "./components/ClientRightInfo";
-import ClientLeftInfo from "./components/ClientLeftInfo";
+import ClientRightInfo from './components/ClientRightInfo';
+import ClientLeftInfo from './components/ClientLeftInfo';
+
+import './ClientProfile.scss';
 
 function ClientProfile() {
   return (
-    <Flex>
+    <div className="client-profile-comp">
       <ClientLeftInfo />
       <ClientRightInfo />
-    </Flex>
+    </div>
   );
 }
-const Flex = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: left;
-  height: auto;
-  min-height:800px
-  background-color: "#F5F6F8";
-`;
+
 export default ClientProfile;

@@ -40,6 +40,11 @@ const handleSetIsBookingListLoading = (state, payload) => {
   return state;
 };
 
+const handleSetIsMoreBookingListLoading = (state, payload) => {
+  state.isMoreBookingListByDateLoading = payload.isLoading;
+  return state;
+};
+
 const handleSetBookingListByDate = (state, payload) => {
   state.bookingListByDate = payload.data;
   return state;
@@ -47,6 +52,8 @@ const handleSetBookingListByDate = (state, payload) => {
 
 export default produce((state = defaultState, action) => {
   switch (action.type) {
+    case types.SET_MORE_BOOKING_LIST_LOADING:
+      return handleSetIsMoreBookingListLoading(state, action.payload);
     case types.SET_BOOKING_LIST_BY_DATE:
       return handleSetBookingListByDate(state, action.payload);
     case types.SET_BOOKING_LIST_LOADING:

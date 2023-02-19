@@ -8,10 +8,12 @@ import {
 import {
   selectIsBookingListByDateLoading,
   selectBookingListByDate,
+  selectIsMoreBookingListByDateLoading,
 } from '../../../../redux/selectors/dashboard';
 
 const mapStateToProps = (state) => ({
   isLoading: selectIsBookingListByDateLoading(state),
+  isMoreLoading: selectIsMoreBookingListByDateLoading(state),
   bookingList: selectBookingListByDate(state),
 });
 

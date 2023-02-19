@@ -1,62 +1,30 @@
 import React from 'react';
 
-import styled from 'styled-components';
 import VenueLogo from '../../assets/img/Rectangle.svg';
-import BannerImage from '../../assets/img/image 5.svg';
 import LogInForm from './components/LogInForm';
 
 import './LogIn.scss';
 
 function Login() {
   return (
-    <MainWrapper>
-      <Banner url={BannerImage} className="banner">
-        <BannerLeft>
+    <div className="login-page">
+      <div className="banner">
+        <div className="banner-left">
           <img className="venueLogo" src={VenueLogo} alt="VenueLogo" />
-        </BannerLeft>
+        </div>
 
-        <BannerRight>
-          <CompanyName>Padel Academy</CompanyName>
-          <Address>JBR, Dubai, United Arab Emirates</Address>
-        </BannerRight>
-      </Banner>
+        <div className="banner-right">
+          <p className="banner-right__client-name">Padel Academy</p>
+          <p className="banner-right__client-address">
+            JBR, Dubai, United Arab Emirates
+          </p>
+        </div>
+      </div>
       <div className="LogInForm">
         <LogInForm />
       </div>
-    </MainWrapper>
+    </div>
   );
 }
-const MainWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 100vw;
-  min-height: 100vh;
-  width: calc(100% - 80px);
-  line-height: 35px;
-`;
-const Banner = styled.div`
-  width: calc(100% - 80px);
-  margin-top: 32px;
-  height: 167px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-`;
-const BannerLeft = styled.div`
-  margin-right: 90px;
-  line-height: 0;
-`;
-const BannerRight = styled.div`
-  font-family: ${(p) => p.theme.font.family};
-  color: ${(p) => p.theme.colors.assetWhite};
-`;
-const CompanyName = styled.p`
-  font-weight: ${(p) => p.theme.font.weight.semiBold};
-  font-size: 32px;
-`;
-const Address = styled.p`
-  font-weight: ${(p) => p.theme.font.weight.semiBold};
-  font-size: 24px;
-`;
+
 export default Login;

@@ -1,0 +1,10 @@
+.layout-with-sidebar {
+  height: 100vh;
+  overflow-y: hidden;
+
+  .content {
+    height: calc(100vh - 20px);
+    overflow-y: scroll;
+    margin-bottom: 30px;
+  }
+}

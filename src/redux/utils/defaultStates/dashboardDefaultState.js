@@ -5,6 +5,7 @@ export const dashboardDefaultState = {
   isLineChartAnalyticsLoading: false,
   isWalletLoading: false,
   isBookingListByDateLoading: false,
+  isMoreBookingListByDateLoading: false,
   bookingListByDate: [],
   wallet: {
     earning: '',

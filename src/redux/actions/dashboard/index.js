@@ -12,7 +12,13 @@ export const types = {
   GET_BOOKING_LIST_BY_DATE: 'GET_BOOKING_LIST_BY_DATE',
   SET_BOOKING_LIST_LOADING: 'SET_BOOKING_LIST_LOADING',
   GET_MORE_BOOKING_LIST_LOADING: 'GET_MORE_BOOKING_LIST_LOADING',
+  SET_MORE_BOOKING_LIST_LOADING: 'SET_MORE_BOOKING_LIST_LOADING',
 };
+
+export const setMoreBookingListByDateLoading = (payload) => ({
+  type: types.SET_MORE_BOOKING_LIST_LOADING,
+  payload,
+});
 
 export const getMoreBookingListByDate = (payload) => ({
   type: types.GET_MORE_BOOKING_LIST_LOADING,
