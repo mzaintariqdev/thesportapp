@@ -1,6 +1,6 @@
 import { UserOutlined } from '@ant-design/icons';
+import { Avatar } from 'antd';
 
-import AntAvatar from '../../components/components/ant/Avatar';
 import '../../components/Clients/Clients.scss';
 
 export const clientColumns = [
@@ -10,7 +10,11 @@ export const clientColumns = [
     key: 'name',
     render: (_, { name }) => (
       <div className="client-profile">
-        <AntAvatar size={24} icon={<UserOutlined />} />
+        <Avatar
+          className="client-column-avatar"
+          size={24}
+          icon={<UserOutlined />}
+        />
         <p className="client-profile__name">{name}</p>
       </div>
     ),

@@ -1,17 +1,26 @@
-import { Input, Select } from "antd";
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import { Form, Input, Select } from 'antd';
 
-import { ReactComponent as DownArrow } from "../../../../../../../../assets/icons/arrow-down.svg";
+import { ReactComponent as DownArrow } from '../../../../../../../../assets/icons/arrow-down.svg';
+
+import './ProfileDebitCard.scss';
 
 function ProfileDebitCard() {
   const { Option } = Select;
   return (
-    <FormWrapper>
-      <RowFlex>
-        <InputWrapper style={{ width: "50%" }}>
-          <InputHeader>Account Type</InputHeader>
-          <AntSelect
+    <Form
+      name="basic"
+      autoComplete="off"
+      validateTrigger="onSubmit"
+      className="profile-debit-card"
+    >
+      <div className="row-flex">
+        <Form.Item
+          className="row-flex__input-fields"
+          label="Account Type"
+          name="accountType"
+        >
+          <Select
             showSearch
             suffixIcon={<DownArrow />}
             bordered={false}
@@ -30,106 +39,71 @@ function ProfileDebitCard() {
             <Option value="4">Identified</Option>
             <Option value="5">Resolved</Option>
             <Option value="6">Cancelled</Option>
-          </AntSelect>
-          <InputDivider />
-        </InputWrapper>
-        <InputWrapper style={{ width: "50%" }}>
-          <InputHeader>Bank Name</InputHeader>
-          <InputField />
-          <InputDivider />
-        </InputWrapper>
-      </RowFlex>
-      <RowFlex>
-        <InputWrapper style={{ width: "50%" }}>
-          <InputHeader>Routining Number</InputHeader>
-          <InputField />
-          <InputDivider />
-        </InputWrapper>
-        <InputWrapper style={{ width: "50%" }}>
-          <InputHeader>Account Number</InputHeader>
-          <InputField />
-          <InputDivider />
-        </InputWrapper>
-      </RowFlex>
-      <RowFlex>
-        <InputWrapper style={{ width: "50%" }}>
-          <InputHeader>Account Holder</InputHeader>
-          <InputField />
-          <InputDivider />
-        </InputWrapper>
-        <InputWrapper style={{ width: "50%" }}>
-          <InputHeader>Organization</InputHeader>
-          <InputField />
-          <InputDivider />
-        </InputWrapper>
-      </RowFlex>
-      <RowFlex>
-        <InputWrapper style={{ width: "100%" }}>
-          <InputHeader>Street Address</InputHeader>
-          <InputField />
-          <InputDivider />
-        </InputWrapper>
-      </RowFlex>
-
-      <RowFlex>
-        <InputWrapper style={{ width: "50%" }}>
-          <InputHeader>City</InputHeader>
-          <InputField />
-          <InputDivider />
-        </InputWrapper>
-        <InputWrapper style={{ width: "50%" }}>
-          <InputHeader>Country</InputHeader>
-          <InputField />
-          <InputDivider />
-        </InputWrapper>
-      </RowFlex>
-    </FormWrapper>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          className="row-flex__input-fields"
+          label="Bank Name"
+          name="bankName"
+        >
+          <Input />
+        </Form.Item>
+      </div>
+      <div className="row-flex">
+        <Form.Item
+          className="row-flex__input-fields"
+          label="Routining Number"
+          name="routiningNumber"
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          className="row-flex__input-fields"
+          label="Account Number"
+          name="accountNumber"
+        >
+          <Input />
+        </Form.Item>
+      </div>
+      <div className="row-flex">
+        <Form.Item
+          className="row-flex__input-fields"
+          label="Account Holder"
+          name="accountHolder"
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          className="row-flex__input-fields"
+          label="Organization"
+          name="organization"
+        >
+          <Input />
+        </Form.Item>
+      </div>
+      <div className="row-flex">
+        <Form.Item
+          className="row-flex__input-fields-full"
+          label="Street Address"
+          name="streetAddress"
+        >
+          <Input />
+        </Form.Item>
+      </div>
+      <div className="row-flex">
+        <Form.Item className="row-flex__input-fields" label="City" name="city">
+          <Input />
+        </Form.Item>
+        <Form.Item
+          className="row-flex__input-fields"
+          label="Country"
+          name="country"
+        >
+          <Input />
+        </Form.Item>
+      </div>
+    </Form>
   );
 }
-const AntSelect = styled(Select)`
-  width: 100%;
-  margin-top: 8px;
-  cursor: pointer;
-`;
-const RowFlex = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: 530px;
-`;
-const InputWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: left;
-  margin-top: 5px;
-  margin-left: 29px;
-`;
-const InputHeader = styled.p`
-  margin: 0;
-  font-family: "Poppins";
-  font-weight: 500;
-  font-size: 11px;
-  color: #818e9b;
-`;
-const InputField = styled(Input)`
-  font-weight: ${(p) => p.theme.font.weight.regular};
-  font-size: 13px;
-  border: 0;
-  color: ${(p) => p.theme.colors.assetBlack};
-  &:active,
-  &:focus {
-    outline: none;
-  }
-  margin-bottom: 7px;
-  width: 100%;
-`;
-const InputDivider = styled.p`
-  height: 1px;
-  width: 100%;
-  background: #d3d8dd;
-`;
-const FormWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: left;
-`;
+
 export default ProfileDebitCard;

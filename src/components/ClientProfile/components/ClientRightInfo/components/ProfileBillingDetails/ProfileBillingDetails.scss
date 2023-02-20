@@ -1,0 +1,146 @@
+.profile-billing-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+
+  .row-flex {
+    display: flex;
+    flex-direction: row;
+    width: 530px;
+
+    &__input-fields {
+      display: flex;
+      flex-direction: column;
+      justify-content: left;
+      margin-left: 29px;
+      margin-bottom: 10px;
+      max-width: 244px;
+
+      .ant-col.ant-form-item-label {
+        text-align: start !important;
+
+        label {
+          font-family: 'Poppins';
+          margin: 0;
+          font-family: 'Poppins';
+          font-weight: 500;
+          font-size: 11px;
+          color: #818e9b;
+        }
+        .ant-form-item-required::before,
+        ::after {
+          display: none;
+        }
+      }
+      .ant-input {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 20px;
+        letter-spacing: 0.01em;
+        color: #323c47;
+        border: 0;
+        border-bottom: 1px solid #d3d8dd;
+        width: 244px;
+      }
+
+      .ant-input-password {
+        border: 0;
+        border-bottom: 1px solid #818e9b;
+      }
+
+      .ant-picker {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 20px;
+        letter-spacing: 0.01em;
+        color: #323c47;
+        border: 0;
+        border-bottom: 1px solid #d3d8dd;
+        margin-bottom: 7px;
+        width: 244px;
+
+        .ant-picker-suffix {
+          color: #109cf1;
+        }
+      }
+
+      .ant-select {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 20px;
+        letter-spacing: 0.01em;
+        color: #323c47;
+        border: 0;
+        border-bottom: 1px solid #d3d8dd;
+        width: 244px;
+      }
+    }
+
+    &__input-fields-full {
+      display: flex;
+      flex-direction: column;
+      justify-content: left;
+      margin-left: 29px;
+      margin-bottom: 10px;
+      width: 100%;
+
+      .ant-col.ant-form-item-label {
+        text-align: start !important;
+
+        label {
+          font-family: 'Poppins';
+          margin: 0;
+          font-family: 'Poppins';
+          font-weight: 500;
+          font-size: 11px;
+          color: #818e9b;
+        }
+        .ant-form-item-required::before,
+        ::after {
+          display: none;
+        }
+      }
+      .ant-input {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 20px;
+        letter-spacing: 0.01em;
+        color: #323c47;
+        border: 0;
+        border-bottom: 1px solid #d3d8dd;
+        width: 100%;
+      }
+
+      .ant-input-password {
+        border: 0;
+        border-bottom: 1px solid #818e9b;
+      }
+
+      .ant-picker {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 20px;
+        letter-spacing: 0.01em;
+        color: #323c47;
+        border: 0;
+        border-bottom: 1px solid #d3d8dd;
+        margin-bottom: 7px;
+        width: 100%;
+
+        .ant-picker-suffix {
+          color: #109cf1;
+        }
+      }
+    }
+  }
+}

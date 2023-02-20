@@ -1,0 +1,16 @@
+.billing-wrap {
+  display: flex;
+  margin-top: 35px;
+  display: flex;
+  flex-direction: column;
+
+  .form-headings {
+    margin: 0;
+    font-family: 'Poppins';
+    margin-bottom: 16px;
+    opacity: 0.5;
+    font-weight: 500;
+    font-size: 13px;
+    color: #334d6e;
+  }
+}

@@ -1,11 +1,10 @@
 import { useHistory } from 'react-router-dom';
 import React, { useMemo, useState } from 'react';
-import styled from 'styled-components';
+
 import ToggleButton from '../../../assets/icons/toggleButton.svg';
 import { ReactComponent as SettingsLogo } from '../../../assets/icons/settings.svg';
-import AntDivider from '../ant/Divider';
 import sidebarOptionsByRole from './utils/constants';
-import { Menu, Layout, Button, Dropdown } from 'antd';
+import { Menu, Layout, Dropdown } from 'antd';
 import classnames from 'classnames';
 import SidebarHeader from './components/SidebarHeader/View';
 import './Sidebar.scss';
@@ -68,8 +67,14 @@ function Sidebar(props) {
           defaultSelectedKeys={['Dashboard']}
           items={items}
         />
-        <AntDivider style={{ marginTop: '45px' }} />
-        <Settings collapsed={collapsed}>
+        <div
+          className={classnames(
+            'settings-container',
+            collapsed
+              ? 'collapse-settings-container'
+              : 'expand-settings-container'
+          )}
+        >
           <Dropdown overlay={menu} trigger={['click']}>
             <a
               onClick={(e) => e.preventDefault()}
@@ -85,46 +90,31 @@ function Sidebar(props) {
               Admin
             </p>
           )}
-        </Settings>
+        </div>
 
-        <Toggle
-          collapsed={collapsed}
+        <div
+          className={classnames(
+            'toggle-container',
+            collapsed ? 'collapse-toggle-container' : 'expand-toggle-container'
+          )}
           onClick={() => {
             setCollapsed(!collapsed);
           }}
         >
           <img style={{ height: '20px' }} src={ToggleButton} alt="toggle" />
-          <ToggleText toggle={collapsed}>Toggle sidebar</ToggleText>
-        </Toggle>
+          <div
+            className={classnames(
+              'toggle-text',
+              collapsed ? 'collapse-toggle-text' : 'expand-toggle-text'
+            )}
+            toggle={collapsed}
+          >
+            Toggle sidebar
+          </div>
+        </div>
       </Sider>
     </div>
   );
 }
-const Settings = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-top: ${(p) => (p.collapsed ? '35px' : '22px')};
-  margin-left: 24px;
-  cursor: pointer;
-`;
 
-const Toggle = styled.div`
-  cursor: pointer;
-  margin-left: ${(p) => (p.toggle ? '0' : ' 27px')};
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  position: fixed;
-  bottom: 0;
-  margin-bottom: 22px;
-`;
-const ToggleText = styled.div`
-  display: ${(p) => (p.toggle ? 'none' : 'block')};
-  margin-left: 14px;
-  font-family: ${(p) => p.theme.font.family};
-  font-weight: ${(p) => p.theme.font.weight.medium};
-  font-size: 11px;
-  color: ${(p) => p.theme.colors.assetGray2};
-`;
 export default Sidebar;

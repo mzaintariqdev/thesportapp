@@ -1,31 +1,25 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
 
-import Schedule from "./components/Schedule";
+import Schedule from './components/Schedule';
+import './ScheduleList.scss';
 
 function ScheduleList() {
   return (
-    <Wrapper>
-      <Schedule borderColor={"#00ac4f"} />
-      <Schedule borderColor={"#DA001A"} />
-      <Schedule borderColor={"#DA001A"} />
-      <Schedule borderColor={"#DA001A"} />
-      <Schedule borderColor={"#DA001A"} />
-      <Schedule borderColor={"#DA001A"} />
-      <Schedule borderColor={"#DA001A"} />
-      <Schedule borderColor={"#DA001A"} />
-      <Schedule borderColor={"#DA001A"} />
-      <Schedule borderColor={"#DA001A"} />
-      <Schedule borderColor={"#DA001A"} />
-      <Schedule borderColor={"#DA001A"} />
-    </Wrapper>
+    <div className="schedule-list-wrapper">
+      <Schedule />
+      <Schedule />
+      <Schedule />
+      <Schedule />
+      <Schedule />
+      <Schedule />
+      <Schedule />
+      <Schedule />
+      <Schedule />
+      <Schedule />
+      <Schedule />
+      <Schedule />
+    </div>
   );
 }
-const Wrapper = styled.div`
-  display: flex;
-  margin-top: 35px;
-  flex-direction: column;
-  max-height: 780px;
-  overflow: auto;
-`;
+
 export default ScheduleList;

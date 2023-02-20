@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import TableComp from '../components/TableComp';
-import { routes } from '../../routes/Routes';
+import { clientUrls } from '../../routes/Routes';
 import { Spin } from 'antd';
 import { clientColumns } from '../../utils/constants/columns';
 
@@ -16,7 +16,7 @@ const Clients = (props) => {
 
   const history = useHistory();
 
-  const composeUrl = (id) => `${routes.clientProfile}`;
+  const composeUrl = (id) => `${clientUrls.clientProfile}/${id}`;
 
   const openStartupDetails = (record) => history.push(composeUrl(record.id));
   return (

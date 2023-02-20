@@ -11,8 +11,57 @@
 .sidebar {
   height: calc(100vh - 90px);
 
+  .settings-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 24px;
+    cursor: pointer;
+  }
+
+  .expand-settings-container {
+    margin-top: 22px;
+  }
+  .collapse-settings-container {
+    margin-top: 35px;
+  }
+
+  .toggle-container {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 22px;
+
+    .toggle-text {
+      margin-left: 14px;
+      font-family: 'Poppins';
+      font-weight: 500;
+      font-size: 11px;
+      color: #90a0b7;
+    }
+
+    .expand-toggle-text {
+      display: block;
+    }
+    .collapse-toggle-text {
+      display: none;
+    }
+  }
+  .expand-toggle-container {
+    margin-left: 27px;
+  }
+
+  .collapse-toggle-container {
+    margin-left: 22px;
+  }
+
   &__menu.ant-menu {
     border: none;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #ebeff2;
     display: flex;
     flex-direction: column;
     background-color: white;
@@ -31,7 +80,7 @@
       }
 
       .ant-menu-title-content {
-        font-family: "Poppins";
+        font-family: 'Poppins';
         font-style: normal;
         font-weight: 500;
         font-size: 13px;
@@ -75,7 +124,7 @@
     }
 
     .ant-menu-title-content {
-      font-family: "Poppins";
+      font-family: 'Poppins';
       font-style: normal;
       font-weight: 500;
       font-size: 13px;

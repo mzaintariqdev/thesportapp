@@ -1,33 +1,19 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
 
-import ProfileAdditionalInfo from "./components/ProfileAdditionalInfo";
-import ProfileBillingDetails from "../ProfileBillingDetails";
+import ProfileAdditionalInfo from './components/ProfileAdditionalInfo';
+import ProfileBillingDetails from '../ProfileBillingDetails';
+
+import './ClientProfile.scss';
 
 function ClientProfile() {
   return (
-    <Wrapper>
-      <Header>Billing Details</Header>
+    <div className="client-profile-form">
+      <p className="form-heading">Billing Details</p>
       <ProfileBillingDetails showContact={true} />
-      <Header style={{ marginTop: "30px" }}> Additional Information</Header>
+      <p className="form-heading"> Additional Information</p>
       <ProfileAdditionalInfo />
-    </Wrapper>
+    </div>
   );
 }
-const Header = styled.p`
-  margin: 0;
-  font-family: "Poppins";
-  margin-bottom: 16px;
-  opacity: 0.5;
-  font-weight: 500;
-  font-size: 13px;
-  color: #334d6e;
-`;
 
-const Wrapper = styled.div`
-  display: flex;
-  margin-top: 35px;
-  display: flex;
-  flex-direction: column;
-`;
 export default ClientProfile;
