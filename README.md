@@ -157,4 +157,4 @@ For Temporay deployment getting help of netlify for that we can run following co
 ```bash
 $ npm run build
 ```
-After that simply use the build folder zip to upload that on netlify after that you will get a hosted link
+After that simply use the build folder to upload that on netlify after that you will get a hosted link
