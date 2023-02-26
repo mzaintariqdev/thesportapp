@@ -16,6 +16,7 @@ import {
 
 import showNotifications from '../../../services/utils/showNotification';
 import {
+  EditBookingsApiService,
   addBookingService,
   deleteBookingsApiService,
   getBookingByIdService,
@@ -94,10 +95,26 @@ function* handleGetBookingId(action) {
   yield put(setIsModalLoading({ isModalLoading: false }));
 }
 
+function* handleEditBookingId(action) {
+  yield put(setIsModalLoading({ isModalLoading: true }));
+  const { id } = action.payload;
+  const { error, data } = yield call(EditBookingsApiService, id);
+  if (error) {
+    yield put(setIsModalLoading({ isModalLoading: false }));
+
+    showNotifications(data.message);
+  } else {
+    yield put(setIsModalLoading({ isModalLoading: false }));
+
+    showNotifications(data.message);
+  }
+}
+
 export default function* scheduleSagas() {
   yield all([
     takeLatest(types.GET_BOOKING_BY_ID, handleGetBookingId),
     takeLatest(types.ADD_BOOKING, handleAddBooking),
+    takeLatest(types.EDIT_BOOKING_BY_ID, handleEditBookingId),
     takeLatest(types.DELETE_BOOKING_BY_ID, handleDeleteBookingId),
     takeLatest(types.SET_BOOKING_ID, handleSetBookingId),
     takeLatest(types.ADD_BOOKING_DATE, handleSetBookingDate),

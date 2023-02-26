@@ -1,7 +1,7 @@
 const homeUrl = '/';
 const loginUrl = '/login';
 
-const clientUrls = {
+export const clientUrls = {
   clients: '/clients',
   clientProfile: '/client-profile',
 };

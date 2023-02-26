@@ -1,20 +1,15 @@
-import styled from "styled-components";
+import LineChart from './components/LineChart';
+import PieChartComp from './components/PieChart';
 
-import LineChart from "./components/LineChart";
-import PieChartComp from "./components/PieChart";
+import './Analytics.scss';
 
 function Analytics() {
   return (
-    <MainWrapper>
+    <div className="analytics-section">
       <LineChart />
       <PieChartComp />
-    </MainWrapper>
+    </div>
   );
 }
-
-const MainWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
 
 export default Analytics;

@@ -1,0 +1,132 @@
+.client-left-info__wrapper {
+  margin-top: 46px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 36px;
+  padding-bottom: 20px;
+
+  &-upper-part {
+    margin-bottom: 22px;
+    margin-top: 23px;
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+    cursor: pointer;
+    &:hover,
+    &:focus,
+    &:active {
+      color: #109cf1;
+    }
+
+    .back-to-client {
+      margin-left: 12px;
+      font-family: 'Poppins';
+      font-weight: 500;
+      font-size: 13px;
+      color: #334d6e;
+      opacity: 0.5;
+      &:hover,
+      &:focus,
+      &:active {
+        color: #109cf1;
+      }
+    }
+  }
+
+  &-form-part {
+    width: 100%;
+    min-width: 417px;
+    max-width: 417px;
+    background: white;
+    padding-bottom: 5rem;
+
+    .avatar-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 15px;
+      margin-bottom: 32px;
+
+      .user-avatar {
+        color: white;
+        width: 46px;
+        height: 46px;
+        background-color: gray;
+        text-align: center;
+        border-radius: 50px;
+      }
+
+      .user-name {
+        font-family: 'Poppins';
+        margin-top: 16px;
+        font-weight: 500;
+        font-size: 14px;
+        text-align: center;
+        color: #192a3e;
+        margin-bottom: 30px;
+      }
+      border-bottom: 1px solid #ebeff2;
+    }
+
+    &__input-fields {
+      display: flex;
+      flex-direction: column;
+      justify-content: left;
+      margin-left: 29px;
+      margin-bottom: 10px;
+
+      .ant-col.ant-form-item-label {
+        text-align: start !important;
+
+        label {
+          font-family: 'Poppins';
+          margin: 0;
+          font-family: 'Poppins';
+          font-weight: 500;
+          font-size: 11px;
+          color: #818e9b;
+        }
+        .ant-form-item-required::before,
+        ::after {
+          display: none;
+        }
+      }
+      .ant-input {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 20px;
+        letter-spacing: 0.01em;
+        color: #323c47;
+        border: 0;
+        border-bottom: 1px solid #d3d8dd;
+        width: 302px;
+      }
+
+      .ant-input-password {
+        border: 0;
+        border-bottom: 1px solid #818e9b;
+      }
+
+      .ant-picker {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 20px;
+        letter-spacing: 0.01em;
+        color: #323c47;
+        border: 0;
+        border-bottom: 1px solid #d3d8dd;
+        margin-bottom: 7px;
+        width: 302px;
+
+        .ant-picker-suffix {
+          color: #109cf1;
+        }
+      }
+    }
+  }
+}

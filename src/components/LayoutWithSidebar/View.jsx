@@ -1,17 +1,17 @@
-import React from "react";
-import { Redirect, Switch } from "react-router-dom";
-import { Layout } from "antd";
+import React from 'react';
+import { Redirect, Switch } from 'react-router-dom';
+import { Layout } from 'antd';
 
-import PrivateRoute from "./components/PrivateRoute";
-import { routes } from "../../routes/Routes";
-import Sidebar from "../components/Sidebar";
-import Header from "../components/Header";
-import styled from "styled-components";
-import ROLES from "../../utils/constants/roles";
-import DashBoard from "../Dashboard";
-import Clients from "../Clients";
-import ClientProfile from "../ClientProfile";
-import Schedule from "../Schedule";
+import PrivateRoute from './components/PrivateRoute';
+import { routes } from '../../routes/Routes';
+import Sidebar from '../components/Sidebar';
+import Header from '../components/Header';
+import ROLES from '../../utils/constants/roles';
+import DashBoard from '../Dashboard';
+import Clients from '../Clients';
+import ClientProfile from '../ClientProfile';
+import Schedule from '../Schedule';
+import './LayoutWithSidebar.scss';
 
 const { Content } = Layout;
 
@@ -19,9 +19,9 @@ function LayoutWithSidebar(props) {
   const { userType } = props;
 
   return (
-    <SidebarLayout hasSider>
+    <Layout className="layout-with-sidebar" hasSider>
       <Sidebar />
-      <SidebarLayout>
+      <Layout className="layout-with-sidebar">
         <Header />
         <Content className="content">
           <Switch>
@@ -56,21 +56,9 @@ function LayoutWithSidebar(props) {
             <Redirect to={routes.homeUrl} />
           </Switch>
         </Content>
-      </SidebarLayout>
-    </SidebarLayout>
+      </Layout>
+    </Layout>
   );
 }
-
-const SidebarLayout = styled(Layout)`
-  height: 100vh;
-  overflow-y: hidden;
-
-  .content {
-    background-color: styles.$variables-white;
-    height: calc(100vh - 20px);
-    overflow-y: scroll;
-    margin-bottom: 30px;
-  }
-`;
 
 export default LayoutWithSidebar;

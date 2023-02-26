@@ -1,0 +1,42 @@
+.rbc-toolbar {
+  .rbc-btn-group {
+    display: flex;
+    align-items: center;
+
+    button {
+      border: none;
+
+      &:focus {
+        background: none;
+      }
+    }
+  }
+
+  .today-style {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    color: #334d6e;
+  }
+
+  .date-style {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.01em;
+
+    color: #334d6e;
+  }
+}

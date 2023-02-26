@@ -1,0 +1,90 @@
+.weekly-calendar {
+  &__selected-date {
+    margin: 0;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 22px;
+    letter-spacing: 0.01em;
+    color: #192a3e;
+    margin-bottom: 47px;
+  }
+
+  &__wrapper {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    &-day-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &__day-heading {
+        margin: 0;
+        margin-bottom: 8px;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 20px;
+        text-align: center;
+        letter-spacing: 0.01em;
+      }
+      .active {
+        color: #109cf1;
+        opacity: 1;
+      }
+      .non-active {
+        color: #334d6e;
+        opacity: 0.5;
+      }
+
+      .selected-date-container {
+        margin: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        border-radius: 25px;
+        width: 24px;
+        height: 24px;
+        background: #109cf1;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 18px;
+        text-align: center;
+        letter-spacing: 0.01em;
+        cursor: pointer;
+        color: #ffffff;
+      }
+
+      .data-content {
+        margin: 0;
+        cursor: pointer;
+        font-family: 'Poppins';
+        border-radius: 25px;
+        width: 24px;
+        height: 24px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 18px;
+        text-align: center;
+        letter-spacing: 0.01em;
+        &__active {
+          color: #109cf1;
+        }
+
+        &__non-active {
+          color: #4c5862;
+        }
+      }
+    }
+  }
+}

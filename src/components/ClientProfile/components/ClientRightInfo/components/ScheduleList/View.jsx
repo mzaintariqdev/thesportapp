@@ -1,31 +1,24 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useEffect } from 'react';
 
-import Schedule from "./components/Schedule";
+import Schedule from './components/Schedule';
+import './ScheduleList.scss';
+import { useParams } from 'react-router-dom';
 
-function ScheduleList() {
+const ScheduleList = (props) => {
+  const { clientSchedules, actions } = props;
+  const { id } = useParams();
+  useEffect(() => {
+    actions.getClientSchedules({ id });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
-    <Wrapper>
-      <Schedule borderColor={"#00ac4f"} />
-      <Schedule borderColor={"#DA001A"} />
-      <Schedule borderColor={"#DA001A"} />
-      <Schedule borderColor={"#DA001A"} />
-      <Schedule borderColor={"#DA001A"} />
-      <Schedule borderColor={"#DA001A"} />
-      <Schedule borderColor={"#DA001A"} />
-      <Schedule borderColor={"#DA001A"} />
-      <Schedule borderColor={"#DA001A"} />
-      <Schedule borderColor={"#DA001A"} />
-      <Schedule borderColor={"#DA001A"} />
-      <Schedule borderColor={"#DA001A"} />
-    </Wrapper>
+    <div className="schedule-list-wrapper">
+      {clientSchedules?.map((schedule, index) => (
+        <Schedule data={schedule} key={index} />
+      ))}
+    </div>
   );
-}
-const Wrapper = styled.div`
-  display: flex;
-  margin-top: 35px;
-  flex-direction: column;
-  max-height: 780px;
-  overflow: auto;
-`;
+};
+
 export default ScheduleList;

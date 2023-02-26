@@ -12,10 +12,16 @@ export const types = {
   ADD_BOOKING_DATE: 'ADD_BOOKING_DATE',
   SET_BOOKING_ID: 'SET_BOOKING_ID',
   GET_BOOKING_BY_ID: 'GET_BOOKING_BY_ID',
+  EDIT_BOOKING_BY_ID: 'EDIT_BOOKING_BY_ID',
   SET_BOOKING_BY_ID: 'SET_BOOKING_BY_ID',
   DELETE_BOOKING_BY_ID: 'DELETE_BOOKING_BY_ID',
   SET_BOOKINGS_ON_DELETE: 'SET_BOOKINGS_ON_DELETE',
 };
+
+export const editBookingById = (payload) => ({
+  type: types.EDIT_BOOKING_BY_ID,
+  payload,
+});
 
 export const deleteBookingById = (payload) => ({
   type: types.DELETE_BOOKING_BY_ID,

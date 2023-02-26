@@ -1,14 +1,14 @@
-import classNames from "classnames";
+import classNames from 'classnames';
 
-import "./BookingStatus.scss";
+import './BookingStatus.scss';
 
 function BookingStatus(props) {
   const { status } = props;
   return (
     <div
       className={classNames(
-        "status-container",
-        status === "unpaid" ? "unpaid" : "others"
+        'status-container',
+        status === 'unpaid' ? 'unpaid' : 'others'
       )}
     >
       {status}

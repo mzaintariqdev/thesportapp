@@ -1,29 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import './EditBooking.scss';
 
-import {
-  Button,
-  DatePicker,
-  Dropdown,
-  Form,
-  Input,
-  Menu,
-  Modal,
-  Popover,
-  Select,
-  Spin,
-  TimePicker,
-} from 'antd';
-import styled from 'styled-components';
-import { RecurrenceOptions } from '../../constants';
-import moment from 'moment';
+import { Dropdown, Form, Menu, Modal, Spin } from 'antd';
+
+import { ReactComponent as EditIcon } from '../../../../../assets/icons/edit.svg';
+
 import BookingStatus from '../../../BookingStatus/View';
 import BookingDetails from './components/BookingDetails/View';
-import {
-  EllipsisOutlined,
-  MoreOutlined,
-  SettingOutlined,
-} from '@ant-design/icons';
+import { MoreOutlined } from '@ant-design/icons';
+import EditForm from './components/EditForm';
 
 const EditBooking = (props) => {
   const [form] = Form.useForm();
@@ -35,43 +20,19 @@ const EditBooking = (props) => {
     bookingId,
     bookingData,
   } = props;
-  console.log('booking id', bookingData);
+
   useEffect(() => {
     actions.getBookingById({ id: bookingId });
   }, [bookingId]);
 
+  const [editForm, setEditForm] = useState(false);
+
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => form.resetFields(), [defaultValue]);
-  const [timeDisabled, setTimeDisabled] = useState(true);
-
-  const onFinish = (data) => {
-    let date = moment(data.date);
-    const endTime = moment(data.time[1]);
-    const startTime = moment(data.time[0]);
-    endTime.set({ year: date.year(), month: date.month(), date: date.date() });
-    startTime.set({
-      year: date.year(),
-      month: date.month(),
-      date: date.date(),
-    });
-    const formData = {
-      clientName: data.client,
-      recurrence: data.recurrence,
-      resource: data.resource,
-      start: moment(startTime).toDate(),
-      end: moment(endTime).toDate(),
-      date: moment(data.date).toDate(),
-      status: 'unpaid',
-    };
-
-    actions.addBooking({
-      data: formData,
-    });
-  };
 
   const onClose = () => {
     form.resetFields();
-
+    setEditForm(false);
     actions.setBookingById({ data: {} });
     actions.setIsEditModalOpen({ open: false });
   };
@@ -80,34 +41,6 @@ const EditBooking = (props) => {
     actions.deleteBookingById({ id: bookingId });
     actions.setBookingById({ data: {} });
     actions.setIsEditModalOpen({ open: false });
-  };
-  const date = Form.useWatch('date', form);
-
-  useEffect(() => {
-    if (date) {
-      setTimeDisabled(false);
-    } else {
-      setTimeDisabled(true);
-    }
-  }, [date]);
-
-  const initial = {
-    date: moment(defaultValue.date),
-  };
-
-  const disabledDate = (current) => {
-    return current < moment();
-  };
-
-  const validateStartEndTime = (rule, value) => {
-    if (value && value[0] && value[1]) {
-      const startTime = value[0].valueOf();
-      const endTime = value[1].valueOf();
-      if (startTime >= endTime) {
-        return Promise.reject('End time must be later than start time!');
-      }
-    }
-    return Promise.resolve();
   };
 
   const handleClick = ({ key }) => {
@@ -124,6 +57,10 @@ const EditBooking = (props) => {
     </Menu>
   );
 
+  const setEdit = () => {
+    setEditForm(!editForm);
+  };
+
   return (
     <Modal
       className="edit-booking-form"
@@ -133,19 +70,33 @@ const EditBooking = (props) => {
     >
       <Spin spinning={isModalLoading}>
         <div className="edit-booking-form__header">
-          <p className="edit-booking-form__header-title">Booking Information</p>
-          <Dropdown overlay={menu} trigger={['click']}>
-            <a onClick={(e) => e.preventDefault()}>
-              <MoreOutlined />
-            </a>
-          </Dropdown>
+          <p className="edit-booking-form__header-title">
+            {editForm ? 'Edit Booking' : 'Booking Information'}
+          </p>
+          {editForm ? (
+            ''
+          ) : (
+            <div className="edit-icon">
+              <EditIcon onClick={setEdit} />
+              <Dropdown overlay={menu} trigger={['click']}>
+                <a onClick={(e) => e.preventDefault()}>
+                  <MoreOutlined />
+                </a>
+              </Dropdown>
+            </div>
+          )}
         </div>
+        {editForm ? (
+          <EditForm data={bookingData} onCancel={setEdit} id={bookingId} />
+        ) : (
+          <>
+            <div onClick={onDelete} className="edit-booking-form__status">
+              <BookingStatus status="unpaid" />
+            </div>
 
-        <div onClick={onDelete} className="edit-booking-form__status">
-          <BookingStatus status="unpaid" />
-        </div>
-
-        <BookingDetails onCancel={onClose} bookingData={bookingData} />
+            <BookingDetails onCancel={onClose} bookingData={bookingData} />
+          </>
+        )}
       </Spin>
     </Modal>
   );

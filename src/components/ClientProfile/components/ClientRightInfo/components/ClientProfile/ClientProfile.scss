@@ -1,0 +1,18 @@
+.client-profile-form {
+  display: flex;
+  flex-direction: column;
+
+  .form-heading {
+    margin: 0;
+    font-family: 'Poppins';
+    margin-bottom: 16px;
+    opacity: 0.5;
+    font-weight: 500;
+    font-size: 13px;
+    color: #334d6e;
+
+    &:nth-child(n + 1) {
+      margin-top: 30px;
+    }
+  }
+}

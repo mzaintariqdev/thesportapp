@@ -1,211 +1,190 @@
-import React from "react";
-import { Input, Select } from "antd";
-import styled from "styled-components";
+import React from 'react';
+import { Input, Select, Form } from 'antd';
 
-import { ReactComponent as DownArrow } from "../../../../../../../../assets/icons/arrow-down.svg";
+import { ReactComponent as DownArrow } from '../../../../../../../../assets/icons/arrow-down.svg';
+
+import './ProfileAdditionalInfo.scss';
 
 function ProfileAdditionalInfo() {
   const { Option } = Select;
-  return (
-    <FormWrapper>
-      <RowFlex>
-        <InputWrapper style={{ width: "50%" }}>
-          <InputHeader>Referral Company</InputHeader>
-          <AntSelect
-            showSearch
-            suffixIcon={<DownArrow />}
-            bordered={false}
-            placeholder="Search to Select"
-            optionFilterProp="children"
-            filterOption={(input, option) => option.children.includes(input)}
-            filterSort={(optionA, optionB) =>
-              optionA.children
-                .toLowerCase()
-                .localeCompare(optionB.children.toLowerCase())
-            }
-          >
-            <Option value="1">Not Identified</Option>
-            <Option value="2">Closed</Option>
-            <Option value="3">Communicated</Option>
-            <Option value="4">Identified</Option>
-            <Option value="5">Resolved</Option>
-            <Option value="6">Cancelled</Option>
-          </AntSelect>
-          <InputDivider />
-        </InputWrapper>
-        <InputWrapper style={{ width: "50%" }}>
-          <InputHeader>Referral Source</InputHeader>
-          <AntSelect
-            showSearch
-            suffixIcon={<DownArrow />}
-            bordered={false}
-            placeholder="Search to Select"
-            optionFilterProp="children"
-            filterOption={(input, option) => option.children.includes(input)}
-            filterSort={(optionA, optionB) =>
-              optionA.children
-                .toLowerCase()
-                .localeCompare(optionB.children.toLowerCase())
-            }
-          >
-            <Option value="1">Not Identified</Option>
-            <Option value="2">Closed</Option>
-            <Option value="3">Communicated</Option>
-            <Option value="4">Identified</Option>
-            <Option value="5">Resolved</Option>
-            <Option value="6">Cancelled</Option>
-          </AntSelect>
-          <InputDivider />
-        </InputWrapper>
-      </RowFlex>
-      <RowFlex>
-        <InputWrapper style={{ width: "50%" }}>
-          <InputHeader>T-Shirt Size</InputHeader>
-          <InputField />
-          <InputDivider />
-        </InputWrapper>
-        <InputWrapper style={{ width: "50%" }}>
-          <InputHeader>Account Number</InputHeader>
-          <InputField />
-          <InputDivider />
-        </InputWrapper>
-      </RowFlex>
-      <RowFlex>
-        <InputWrapper style={{ width: "50%" }}>
-          <InputHeader>Trainer</InputHeader>
-          <AntSelect
-            showSearch
-            suffixIcon={<DownArrow />}
-            bordered={false}
-            placeholder="Search to Select"
-            optionFilterProp="children"
-            filterOption={(input, option) => option.children.includes(input)}
-            filterSort={(optionA, optionB) =>
-              optionA.children
-                .toLowerCase()
-                .localeCompare(optionB.children.toLowerCase())
-            }
-          >
-            <Option value="1">Not Identified</Option>
-            <Option value="2">Closed</Option>
-            <Option value="3">Communicated</Option>
-            <Option value="4">Identified</Option>
-            <Option value="5">Resolved</Option>
-            <Option value="6">Cancelled</Option>
-          </AntSelect>
-          <InputDivider />
-        </InputWrapper>
-        <InputWrapper style={{ width: "50%" }}>
-          <InputHeader>SalesPerson</InputHeader>
-          <AntSelect
-            showSearch
-            suffixIcon={<DownArrow />}
-            bordered={false}
-            placeholder="Search to Select"
-            optionFilterProp="children"
-            filterOption={(input, option) => option.children.includes(input)}
-            filterSort={(optionA, optionB) =>
-              optionA.children
-                .toLowerCase()
-                .localeCompare(optionB.children.toLowerCase())
-            }
-          >
-            <Option value="1">Not Identified</Option>
-            <Option value="2">Closed</Option>
-            <Option value="3">Communicated</Option>
-            <Option value="4">Identified</Option>
-            <Option value="5">Resolved</Option>
-            <Option value="6">Cancelled</Option>
-          </AntSelect>
-          <InputDivider />
-        </InputWrapper>
-      </RowFlex>
-      <RowFlex>
-        <InputWrapper style={{ width: "50%" }}>
-          <InputHeader>RelationShips</InputHeader>
-          <AntSelect
-            showSearch
-            suffixIcon={<DownArrow />}
-            bordered={false}
-            placeholder="Search to Select"
-            optionFilterProp="children"
-            filterOption={(input, option) => option.children.includes(input)}
-            filterSort={(optionA, optionB) =>
-              optionA.children
-                .toLowerCase()
-                .localeCompare(optionB.children.toLowerCase())
-            }
-          >
-            <Option value="1">Not Identified</Option>
-            <Option value="2">Closed</Option>
-            <Option value="3">Communicated</Option>
-            <Option value="4">Identified</Option>
-            <Option value="5">Resolved</Option>
-            <Option value="6">Cancelled</Option>
-          </AntSelect>
-          <InputDivider />
-        </InputWrapper>
-        <InputWrapper style={{ width: "50%" }}>
-          <InputHeader>Discount</InputHeader>
-          <InputField />
-          <InputDivider />
-        </InputWrapper>
-      </RowFlex>
 
-      <RowFlex>
-        <InputWrapper style={{ width: "100%" }}>
-          <InputHeader>Medical Conditions</InputHeader>
-          <InputField />
-          <InputDivider />
-        </InputWrapper>
-      </RowFlex>
-    </FormWrapper>
+  return (
+    <Form
+      name="basic"
+      autoComplete="off"
+      validateTrigger="onSubmit"
+      className="profile-additional-info"
+    >
+      <div className="row-flex">
+        <Form.Item
+          className="row-flex__input-fields"
+          label="Referral Company"
+          name="referralCompany"
+        >
+          <Select
+            showSearch
+            suffixIcon={<DownArrow />}
+            bordered={false}
+            placeholder="Search to Select"
+            optionFilterProp="children"
+            filterOption={(input, option) => option.children.includes(input)}
+            filterSort={(optionA, optionB) =>
+              optionA.children
+                .toLowerCase()
+                .localeCompare(optionB.children.toLowerCase())
+            }
+          >
+            <Option value="1">Not Identified</Option>
+            <Option value="2">Closed</Option>
+            <Option value="3">Communicated</Option>
+            <Option value="4">Identified</Option>
+            <Option value="5">Resolved</Option>
+            <Option value="6">Cancelled</Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          className="row-flex__input-fields"
+          label="Referral Source"
+          name="referralSource"
+        >
+          <Select
+            showSearch
+            suffixIcon={<DownArrow />}
+            bordered={false}
+            placeholder="Search to Select"
+            optionFilterProp="children"
+            filterOption={(input, option) => option.children.includes(input)}
+            filterSort={(optionA, optionB) =>
+              optionA.children
+                .toLowerCase()
+                .localeCompare(optionB.children.toLowerCase())
+            }
+          >
+            <Option value="1">Not Identified</Option>
+            <Option value="2">Closed</Option>
+            <Option value="3">Communicated</Option>
+            <Option value="4">Identified</Option>
+            <Option value="5">Resolved</Option>
+            <Option value="6">Cancelled</Option>
+          </Select>
+        </Form.Item>
+      </div>
+      <div className="row-flex">
+        <Form.Item
+          className="row-flex__input-fields"
+          label="T-Shirt Size"
+          name="tShirtSize"
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          className="row-flex__input-fields"
+          label="Account Number"
+          name="accountNumber"
+        >
+          <Input />
+        </Form.Item>
+      </div>
+      <div className="row-flex">
+        <Form.Item
+          className="row-flex__input-fields"
+          label="Trainer"
+          name="trainer"
+        >
+          <Select
+            showSearch
+            suffixIcon={<DownArrow />}
+            bordered={false}
+            placeholder="Search to Select"
+            optionFilterProp="children"
+            filterOption={(input, option) => option.children.includes(input)}
+            filterSort={(optionA, optionB) =>
+              optionA.children
+                .toLowerCase()
+                .localeCompare(optionB.children.toLowerCase())
+            }
+          >
+            <Option value="1">Not Identified</Option>
+            <Option value="2">Closed</Option>
+            <Option value="3">Communicated</Option>
+            <Option value="4">Identified</Option>
+            <Option value="5">Resolved</Option>
+            <Option value="6">Cancelled</Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          className="row-flex__input-fields"
+          label="SalesPerson"
+          name="salesPerson"
+        >
+          <Select
+            showSearch
+            suffixIcon={<DownArrow />}
+            bordered={false}
+            placeholder="Search to Select"
+            optionFilterProp="children"
+            filterOption={(input, option) => option.children.includes(input)}
+            filterSort={(optionA, optionB) =>
+              optionA.children
+                .toLowerCase()
+                .localeCompare(optionB.children.toLowerCase())
+            }
+          >
+            <Option value="1">Not Identified</Option>
+            <Option value="2">Closed</Option>
+            <Option value="3">Communicated</Option>
+            <Option value="4">Identified</Option>
+            <Option value="5">Resolved</Option>
+            <Option value="6">Cancelled</Option>
+          </Select>
+        </Form.Item>
+      </div>
+      <div className="row-flex">
+        <Form.Item
+          className="row-flex__input-fields"
+          label="RelationShips"
+          name="relationShips"
+        >
+          <Select
+            showSearch
+            suffixIcon={<DownArrow />}
+            bordered={false}
+            placeholder="Search to Select"
+            optionFilterProp="children"
+            filterOption={(input, option) => option.children.includes(input)}
+            filterSort={(optionA, optionB) =>
+              optionA.children
+                .toLowerCase()
+                .localeCompare(optionB.children.toLowerCase())
+            }
+          >
+            <Option value="1">Not Identified</Option>
+            <Option value="2">Closed</Option>
+            <Option value="3">Communicated</Option>
+            <Option value="4">Identified</Option>
+            <Option value="5">Resolved</Option>
+            <Option value="6">Cancelled</Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          className="row-flex__input-fields"
+          label="Discount"
+          name="discount"
+        >
+          <Input />
+        </Form.Item>
+      </div>
+      <div className="row-flex">
+        <Form.Item
+          className="row-flex__input-fields-full"
+          label="Medical Conditions"
+          name="medicalConditions"
+        >
+          <Input />
+        </Form.Item>
+      </div>
+    </Form>
   );
 }
-const AntSelect = styled(Select)`
-  width: 100%;
-  margin-top: 8px;
-  cursor: pointer;
-`;
-const RowFlex = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: 530px;
-`;
-const InputWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: left;
-  margin-top: 5px;
-  margin-left: 29px;
-`;
-const InputHeader = styled.p`
-  margin: 0;
-  font-family: "Poppins";
-  font-weight: 500;
-  font-size: 11px;
-  color: #818e9b;
-`;
-const InputField = styled(Input)`
-  font-weight: ${(p) => p.theme.font.weight.regular};
-  font-size: 13px;
-  border: 0;
-  color: ${(p) => p.theme.colors.assetBlack};
-  &:active,
-  &:focus {
-    outline: none;
-  }
-  margin-bottom: 7px;
-  width: 100%;
-`;
-const InputDivider = styled.p`
-  height: 1px;
-  width: 100%;
-  background: #d3d8dd;
-`;
-const FormWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: left;
-`;
+
 export default ProfileAdditionalInfo;

@@ -11,7 +11,7 @@ import {
   Spin,
   TimePicker,
 } from 'antd';
-import styled from 'styled-components';
+
 import { RecurrenceOptions } from '../../constants';
 import moment from 'moment';
 
@@ -92,7 +92,7 @@ const AddBookings = (props) => {
     >
       <Spin spinning={isModalLoading}>
         <p className="add-booking-form__title">New Booking</p>
-        <Divider />
+
         <Form
           form={form}
           onFinish={onFinish}
@@ -195,11 +195,5 @@ const AddBookings = (props) => {
     </Modal>
   );
 };
-
-const Divider = styled.p`
-  margin-top: 22px;
-  margin-bottom: 8px;
-  border: 1px solid ${(p) => p.theme.colors.assetGray};
-`;
 
 export default AddBookings;

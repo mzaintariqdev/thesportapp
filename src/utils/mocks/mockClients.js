@@ -1,0 +1,71 @@
+export const mockClients = [
+  {
+    id: '1',
+    name: 'Lindsey Stroud',
+    email: 'lindsey.stroud@gmail.com',
+    companyName: 'Hatchbuck',
+    mobile: '+971 500000000',
+    amountDue: '0 AED',
+    lastSession: '5 Minutes ago',
+  },
+  {
+    id: '2',
+    name: 'Lindsey Stroud',
+    email: 'lindsey.stroud@gmail.com',
+    companyName: 'Hatchbuck',
+    mobile: '+971 500000000',
+    amountDue: '0 AED',
+    lastSession: '5 Minutes ago',
+  },
+  {
+    id: '3',
+    name: 'Lindsey Stroud',
+    email: 'lindsey.stroud@gmail.com',
+    companyName: 'Hatchbuck',
+    mobile: '+971 500000000',
+    amountDue: '0 AED',
+    lastSession: '5 Minutes ago',
+  },
+  {
+    id: '4',
+    name: 'Lindsey Stroud',
+    email: 'lindsey.stroud@gmail.com',
+    companyName: 'Hatchbuck',
+    mobile: '+971 500000000',
+    amountDue: '0 AED',
+    lastSession: '5 Minutes ago',
+  },
+  {
+    id: '5',
+    name: 'Lindsey Stroud',
+    email: 'lindsey.stroud@gmail.com',
+    companyName: 'Hatchbuck',
+    mobile: '+971 500000000',
+    amountDue: '0 AED',
+    lastSession: '5 Minutes ago',
+  },
+];
+
+export const mockClientSchedule = [
+  {
+    id: '1',
+    resource: 'Tennis Court',
+    date: '22 March 10:00 - 11:00',
+    amount: '420 AED',
+    status: 'paid',
+  },
+  {
+    id: '2',
+    resource: 'Tennis Court',
+    date: '5 March 10:00 - 11:00',
+    amount: '920 AED',
+    status: 'unpaid',
+  },
+  {
+    id: '3',
+    resource: 'Tennis Court',
+    date: '22 March 10:00 - 11:00',
+    amount: '120 AED',
+    status: 'paid',
+  },
+];
