@@ -1,70 +1,147 @@
-# Getting Started with Create React App
+# How to run the app locally
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Requirements
 
-In the project directory, you can run:
+- node ^v16.16.0
+- npm ^8.11.0
 
-### `npm start`
+## Installed Dependencies
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Immer
+- Axios
+- Redux (with sagas)
+- React icons
+- React Router
+- Classnames
+- MomentJS
+- Reselect
+- Sass
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Documentation
+- [React](https://reactjs.org/docs/getting-started.html)
+- [Immer](https://immerjs.github.io/immer/)
+- [Redux](https://redux.js.org/api/api-reference)
+- [Sass](https://sass-lang.com/documentation/)
+- [React Icons](https://react-icons.github.io/react-icons/)
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To run it locally you just need to clone the project after that do the follwoing steps:
 
-### `npm run build`
+1. in your terminal go to root directory of the project run:
+```bash
+$ npm install
+```
+## Running App
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+&nbsp; &nbsp; After installation step is complete, you're ready to start the project!
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+$ npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Project Structure
 
-### `npm run eject`
+&nbsp; &nbsp; This project uses Fractal project structure (also known as self-contained apps, recursive route hierarchy).
+Instead of building applications using a flat directory structures, where everything is separated into folders such
+as containers, components etc. which is not scalable, this structure allows the application to construct its own
+architecture from the beginning. Rather than grouping functionality by file type, this structure groups it by feature.
+The structure below represents the fractal structure and how it will be used for this project.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+.
+├── assets
+|   ├── icons
+|   ├── images
+├── src
+|   ├── components
+|   |   ├── components
+|   |   ├── App
+|   |   |   └── index.js
+|   |   |   └── App.jsx
+|   |   |   └── Container.js (can be added if needed)
+|   |   └── Component
+|   |       └── View.jsx
+|   |       └── Container.js
+|   |       └── index.js
+|   |       └── Component.scss
+|   |       └── components
+|   |           └── ...
+|   ├── redux
+|   |   ├── reducers
+|   |   |   └── index.js
+|   |   |   └── componentReducer
+|   |   |       └── index.js
+|   |   ├── actions
+|   |   |   └── componentActions
+|   |   |       └── index.js
+|   |   ├── sagas
+|   |   |   └── index.js
+|   |   |   └── componentSagas
+|   |   |       └── index.js
+|   |   ├── selectors
+|   |   |   └── componentSelectors
+|   |   |       └── index.js
+|   |   ├── store
+|   |   |   └── index.js
+|   |   ├── utils
+|   ├── services
+|   |   └── apiService.js
+|   |   └── componentServices
+|   |       └── index.js
+|   ├── routes
+|   |   └── route.js
+|   |   
+|   |    
+|   ├── styles
+|   |   └── App.scss
+|   |   └── index.scss
+|   |   └── variables.scss
+|   |   └── ...
+|   ├── types
+|   |   └── index.js
+|   |   └── component
+|   |   └── index.js
+|   |   └── ComponentProps.js
+|   |   └── ...
+|   └── utils
+|       └── defaultStates
+|       
+|       
+|       
+└── index.jsx
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Components
+&nbsp; &nbsp; Components folder contains all defined components separated into respective folders. Inside the root
+`Components` folder is also another `components` folder, which contains all reusable components, such as buttons, inputs,
+popups, notifications, etc. Each component should have the following files:
+1. **View.jsx** - JS file containing JSX elements.
+2. **Container.js** - JS file containing connection to redux store.
+3. **index.js** - JS file exporting View and Container wrapped.
+4. **styles.scss** - SCSS file containing styles for the component.
+5. **components** - (optional) folder containing Component's components in the same structure as described above
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+**NOTE**: *if the component does not need data from redux store, such as state or actions, Container file does not need to be created.
+Instead, index file exports only the View.*
 
-## Learn More
+### Redux
+&nbsp; &nbsp; Redux folder contains everything required for redux store:
+1. **store** *(index.js)* - redux configuration
+2. **reducers** - folder containing index.js (entry point for all reducers) and respective folders with reducers for each component.
+3. **sagas** - folder containing index.js (entry point for all sagas) and respective folders with sagas for each component.
+4. **selectors** - folder containing respective folders with selectors for each component.
+5. **actions** - folder containing respective folders with actions for each component.
+6. **utils** - folder containing all helpers, constants etc. that are needed for redux.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Routes
+&nbsp; &nbsp; Routes folder contains the following: 
+1. **route.js** - entry point for all route declarations
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Services
+&nbsp; &nbsp; Services folder contains the following:
+1. **apiService.js** - service provider
+2. **`component`Service.js** - file containing api definitions for component. Each component (api route) should have separate service file.
+3. **utils** - folder containing API routes definitions, and helper function for handling API calls
