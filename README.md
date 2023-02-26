@@ -40,6 +40,11 @@ $ npm install
 ```bash
 $ npm start
 ```
+After that you can use follwoing login for the app which is using mock api:
+```bash
+username: admin
+password: admin123
+```
 
 ## Project Structure
 
@@ -145,3 +150,11 @@ Instead, index file exports only the View.*
 1. **apiService.js** - service provider
 2. **`component`Service.js** - file containing api definitions for component. Each component (api route) should have separate service file.
 3. **utils** - folder containing API routes definitions, and helper function for handling API calls
+
+### Deployment 
+For Temporay deployment getting help of netlify for that we can run following command to create a build:
+
+```bash
+$ npm run build
+```
+After that simply use the build folder zip to upload that on netlify after that you will get a hosted link
