@@ -45,3 +45,27 @@ export const mockClients = [
     lastSession: '5 Minutes ago',
   },
 ];
+
+export const mockClientSchedule = [
+  {
+    id: '1',
+    resource: 'Tennis Court',
+    date: '22 March 10:00 - 11:00',
+    amount: '420 AED',
+    status: 'paid',
+  },
+  {
+    id: '2',
+    resource: 'Tennis Court',
+    date: '5 March 10:00 - 11:00',
+    amount: '920 AED',
+    status: 'unpaid',
+  },
+  {
+    id: '3',
+    resource: 'Tennis Court',
+    date: '22 March 10:00 - 11:00',
+    amount: '120 AED',
+    status: 'paid',
+  },
+];

@@ -1,9 +1,17 @@
 import { all, call, put, takeLatest } from 'redux-saga/effects';
 
-import { types, setClients, setIsLoading } from '../../actions/client';
+import {
+  types,
+  setClients,
+  setIsLoading,
+  setClientSchedules,
+} from '../../actions/client';
 
 import showNotifications from '../../../services/utils/showNotification';
-import { getClientsService } from '../../../services/clientServices';
+import {
+  getClientScheduleService,
+  getClientsService,
+} from '../../../services/clientServices';
 
 function* handleGetClients() {
   yield put(setIsLoading({ isLoading: true }));
@@ -18,6 +26,22 @@ function* handleGetClients() {
   yield put(setIsLoading({ isLoading: false }));
 }
 
+function* handleGetClientSchedules(action) {
+  const { id } = action.payload;
+
+  const { data: clientSchedules, error } = yield call(
+    getClientScheduleService,
+    id
+  );
+
+  if (error) {
+    showNotifications('error');
+  } else {
+    yield put(setClientSchedules({ clientSchedules }));
+  }
+}
+
 export default function* clientSagas() {
   yield all([takeLatest(types.GET_CLIENTS, handleGetClients)]);
+  yield all([takeLatest(types.GET_CLIENT_SCHEDULES, handleGetClientSchedules)]);
 }

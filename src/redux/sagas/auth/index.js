@@ -47,7 +47,7 @@ function* handleResetPassword(action) {
 
 function* handleLogin(action) {
   yield put(setIsLoading({ isLoading: true }));
-  console.log(action.payload);
+
   const { data, error } = yield call(loginApiService, action.payload);
 
   yield put(setIsLoading({ isLoading: false }));

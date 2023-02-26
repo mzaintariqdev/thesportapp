@@ -10,7 +10,6 @@ import RenderIf from '../../../components/RenderIf';
 function DashboardWeeklyCalender(props) {
   const { actions, isLoading, isMoreLoading, bookingList } = props;
   const [selectedDate, setSelectedDate] = useState(new Date());
-  console.log(selectedDate, selectedDate);
 
   useEffect(() => {
     actions.getBookingListByDate({ date: selectedDate });
@@ -41,7 +40,16 @@ function DashboardWeeklyCalender(props) {
           />
         </RenderIf>
         <RenderIf condition={bookingList?.length === 0}>
-          <p>No Data Available</p>
+          <p
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              margin: '20px',
+            }}
+          >
+            No Data Available
+          </p>
         </RenderIf>
       </div>
     </Spin>

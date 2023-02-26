@@ -1,5 +1,5 @@
 export const dashboardDefaultState = {
-  taskAnalytics: {},
+  taskAnalytics: null,
   lineChartAnalytics: [],
   isTaskAnalyticsLoading: false,
   isLineChartAnalyticsLoading: false,
@@ -7,14 +7,7 @@ export const dashboardDefaultState = {
   isBookingListByDateLoading: false,
   isMoreBookingListByDateLoading: false,
   bookingListByDate: [],
-  wallet: {
-    earning: '',
-    earningPercentage: '',
-    balance: '',
-    balancePercentage: '',
-    sales: '',
-    salesPercentage: '',
-  },
+  wallet: null,
 };
 
 export default dashboardDefaultState;

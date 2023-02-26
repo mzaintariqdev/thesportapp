@@ -6,6 +6,15 @@ import {
   getLineChartAnalytics,
   getWalletData,
 } from '../../redux/actions/dashboard';
+import { selectWalletData } from '../../redux/selectors/dashboard';
+import { selectTaskAnalytics } from '../../redux/selectors/dashboard';
+import { selectLineChartAnalytics } from '../../redux/selectors/dashboard';
+
+const mapStateToProps = (state) => ({
+  walletData: selectWalletData(state),
+  taskAnalytics: selectTaskAnalytics(state),
+  lineChartAnalytics: selectLineChartAnalytics(state),
+});
 
 const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators(
@@ -18,4 +27,4 @@ const mapDispatchToProps = (dispatch) => ({
   ),
 });
 
-export default connect(null, mapDispatchToProps);
+export default connect(mapStateToProps, mapDispatchToProps);

@@ -11,4 +11,5 @@ export const clientDefaultState = {
     },
   ],
   isLoading: false,
+  clientSchedules: [],
 };

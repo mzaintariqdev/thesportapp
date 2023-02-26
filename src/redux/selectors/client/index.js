@@ -11,3 +11,8 @@ export const selectIsClientLoading = createSelector(
   selectClient,
   (state) => state.isLoading
 );
+
+export const selectClientSchedule = createSelector(
+  selectClient,
+  (state) => state.clientSchedules
+);

@@ -7,24 +7,25 @@ import { ReactComponent as MoreIcon } from '../../../../../../../../assets/icons
 import './Schedule.scss';
 
 function Schedule(props) {
+  const { data } = props;
   return (
     <div
       className={classNames(
         'schedule-wrapper',
-        props.status ? 'paid-schedule' : 'other-schedule'
+        data?.status === 'paid' ? 'paid-schedule' : 'other-schedule'
       )}
     >
       <div className="sub-schedule-wrapper">
         <p className="sub-schedule-wrapper__header">Resource</p>
-        <p className="sub-schedule-wrapper__value">Tennis Court</p>
+        <p className="sub-schedule-wrapper__value">{data?.resource}</p>
       </div>
       <div className="sub-schedule-wrapper">
         <p className="sub-schedule-wrapper__header">Date</p>
-        <p className="sub-schedule-wrapper__value">22 March 10:00 - 11:00</p>
+        <p className="sub-schedule-wrapper__value">{data?.date}</p>
       </div>
       <div className="sub-schedule-wrapper">
         <p className="sub-schedule-wrapper__header">Amount</p>
-        <p className="sub-schedule-wrapper__value">420 AED</p>
+        <p className="sub-schedule-wrapper__value">{data?.amount}</p>
       </div>
       <div className="options-wrap">
         <EditIcon />

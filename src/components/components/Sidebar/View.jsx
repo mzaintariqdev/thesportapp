@@ -8,6 +8,7 @@ import { Menu, Layout, Dropdown } from 'antd';
 import classnames from 'classnames';
 import SidebarHeader from './components/SidebarHeader/View';
 import './Sidebar.scss';
+import { LogoutOutlined } from '@ant-design/icons';
 
 const { Sider } = Layout;
 
@@ -32,11 +33,14 @@ function Sidebar(props) {
   );
 
   const handleClick = ({ key }) => {
-    console.log(key);
     //you can perform setState here
     if (key === 'Logout') {
       actions.logout();
     }
+  };
+
+  const handleLogout = () => {
+    actions.logout();
   };
 
   const menu = (
@@ -75,20 +79,25 @@ function Sidebar(props) {
               : 'expand-settings-container'
           )}
         >
-          <Dropdown overlay={menu} trigger={['click']}>
-            <a
-              onClick={(e) => e.preventDefault()}
-              style={{ color: '#d46b08', fontWeight: 'bold' }}
-            >
-              <SettingsLogo />
-            </a>
-          </Dropdown>
           {collapsed ? (
-            ''
+            <LogoutOutlined onClick={handleLogout} />
           ) : (
-            <p style={{ marginLeft: '12px', marginBottom: 0 }} className="link">
-              Admin
-            </p>
+            <>
+              <Dropdown overlay={menu} trigger={['click']}>
+                <a
+                  onClick={(e) => e.preventDefault()}
+                  style={{ color: '#d46b08', fontWeight: 'bold' }}
+                >
+                  <SettingsLogo />
+                </a>
+              </Dropdown>
+              <p
+                style={{ marginLeft: '12px', marginBottom: 0 }}
+                className="link"
+              >
+                Admin
+              </p>
+            </>
           )}
         </div>
 

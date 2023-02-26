@@ -25,6 +25,15 @@ export const deleteBookingsApiService = (id) => ({
   status: 200,
 });
 
+export const EditBookingsApiService = async (id) => {
+  await sleep(2000);
+  return {
+    data: { message: 'Booking Updated SuccessFully', id },
+    error: false,
+    status: 200,
+  };
+};
+
 export const getBookingByIdService = async (id) => {
   await sleep(2000);
   const bookingById = mockSchedule.find((booking) => booking.id === id);

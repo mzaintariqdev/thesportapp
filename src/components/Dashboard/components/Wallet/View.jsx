@@ -15,8 +15,8 @@ function Wallet(props) {
         <StatsContainer
           StatIcon={<TopAnalyticsOne />}
           heading="Earning"
-          balance={walletData.earning}
-          percentage={walletData.earningPercentage}
+          balance={walletData?.earning}
+          percentage={walletData?.earningPercentage}
         />
       </Spin>
       <div className="divider" />
@@ -24,8 +24,8 @@ function Wallet(props) {
         <StatsContainer
           StatIcon={<TopAnalyticsTwo />}
           heading="Balance"
-          balance={walletData.balance}
-          percentage={walletData.balancePercentage}
+          balance={walletData?.balance}
+          percentage={walletData?.balancePercentage}
         />
       </Spin>
       <div className="divider" />
@@ -33,8 +33,8 @@ function Wallet(props) {
         <StatsContainer
           StatIcon={<TopAnalyticsThree />}
           heading="Total Sales"
-          balance={walletData.sales}
-          percentage={walletData.salesPercentage}
+          balance={walletData?.sales}
+          percentage={walletData?.salesPercentage}
         />
       </Spin>
     </div>
