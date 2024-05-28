@@ -1,5 +1,20 @@
 # How to run the app locally
 
+## Description
+
+This project focuses on creating a user-friendly UI/UX using Reactjs and Ant Design for reusable components and using React big Calendar. It includes role-based authentication with mock APIs and state management implemented via Redux saga so no backend is attached only a FE is included in this project the Concept of this project was to Create FE for a Sports  Club Booking system for there Clients . The application is deployed and accessible at the following link:
+
+[Access the Application](https://thesportapp.netlify.app/)
+
+## Credentials for the App
+
+### Admin Login
+- **username:** admin
+- **Password:** admin123
+
+### club Login
+- **Email:** club
+- **Password:** club123
 
 ## Requirements
 
